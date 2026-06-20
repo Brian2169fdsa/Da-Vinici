@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Privacy Policy — Da Vinci Consulting Services</title>
+<meta name="description" content="Privacy Policy for Da Vinci Consulting Services.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:#F6F1E7; -webkit-font-smoothing:antialiased; }
+  ::selection { background:#B68B3C; color:#211C18; }
+  @keyframes dvRise { from { transform:translateY(24px); } to { transform:translateY(0); } }
+  [data-reveal]{ animation:dvRise .75s cubic-bezier(.22,1,.36,1) both; }
+  @media (max-width:940px){ [data-desktop-nav]{display:none !important;} [data-mobile-toggle]{display:inline-flex !important;} }
+  @media (min-width:941px){ [data-mobile-toggle]{display:none !important;} }
+  @media (prefers-reduced-motion:reduce){ [data-reveal]{animation:none !important;} }
+</style>
+</helmet>
+
+<div style="font-family:'Inter',sans-serif;color:#3A342C;background:#F6F1E7;overflow-x:hidden;">
+<dc-import name="SiteHeader" hint-size="100%,74px"></dc-import>
+
+<section data-screen-label="Privacy" style="margin-top:74px;padding:clamp(48px,7vw,88px) clamp(20px,5vw,40px) clamp(56px,8vw,96px);">
+  <div style="max-width:760px;margin:0 auto;">
+    <div data-reveal>
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B6155;margin:0 0 16px;">Legal</p>
+      <h1 style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(34px,5vw,54px);line-height:1.05;letter-spacing:-.015em;color:#211C18;margin:0 0 14px;">Privacy Policy</h1>
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em;color:#A8997F;margin:0 0 40px;">Last updated: June 2026</p>
+    </div>
+    <div data-reveal data-reveal-delay="80">
+      <p style="font-size:17px;line-height:1.75;color:#3A342C;margin:0 0 28px;">Da Vinci Consulting Services ("we," "us," or "our") respects your privacy. This policy explains what information we collect when you use davinciconsultingservices.com or contact us, how we use it, and the choices you have. This is a starting template; have it reviewed by counsel before launch.</p>
+      <sc-for list="{{ sections }}" as="s" hint-placeholder-count="6">
+        <h2 style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(20px,2.6vw,26px);color:#211C18;margin:36px 0 12px;">{{ s.h }}</h2>
+        <p style="font-size:16.5px;line-height:1.75;color:#3A342C;margin:0 0 18px;">{{ s.p }}</p>
+      </sc-for>
+      <h2 style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(20px,2.6vw,26px);color:#211C18;margin:36px 0 12px;">Contact us</h2>
+      <p style="font-size:16.5px;line-height:1.75;color:#3A342C;margin:0;">Questions about this policy? Email <a href="mailto:tony@davinciconsultingservices.com" style="color:#876728;text-decoration:none;">tony@davinciconsultingservices.com</a> or call <a href="tel:4806068602" style="color:#876728;text-decoration:none;">480-606-8602</a>. Mail: 1141 East Glendale Avenue #1054, Phoenix, Arizona 85020.</p>
+    </div>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,560px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  get sections() {
+    return [
+      { h: "Information we collect", p: "When you submit a contact or consultation form, subscribe to our newsletter, or email us, we collect the information you provide, such as your name, facility name, email address, phone number, and message. We also collect basic, non-identifying analytics about how visitors use our site." },
+      { h: "How we use your information", p: "We use your information to respond to inquiries, provide consulting services, send updates you have requested, and improve our website. We do not sell your personal information." },
+      { h: "How we share information", p: "We share information only with service providers who help us operate our business (for example, email and form-handling services), and only as needed to deliver our services. We may disclose information if required by law." },
+      { h: "Data retention", p: "We retain the information you provide for as long as needed to serve you and to meet our legal and professional obligations, then dispose of it securely." },
+      { h: "Your choices", p: "You may unsubscribe from our newsletter at any time using the link in each email, and you may request that we update or delete your information by contacting us." },
+      { h: "Cookies and analytics", p: "Our site may use cookies and similar technologies to remember preferences and measure traffic. You can control cookies through your browser settings." }
+    ];
+  }
+  renderVals() { return { sections: this.sections }; }
+  componentDidMount() {
+    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+    document.querySelectorAll("[data-reveal][data-reveal-delay]").forEach(el => { el.style.animationDelay = (el.getAttribute("data-reveal-delay") || 0) + "ms"; });
+  }
+}
+</script>
+</body>
+</html>

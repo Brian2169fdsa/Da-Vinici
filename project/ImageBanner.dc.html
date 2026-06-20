@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="font-family:'Inter',sans-serif;">
+<section style="position:relative;min-height:clamp(420px,56vh,560px);display:flex;align-items:center;overflow:hidden;">
+  <img src="{{ img }}" alt="{{ heading }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;"/>
+  <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,16,12,.04) 0%,rgba(20,16,12,.28) 44%,rgba(20,16,12,.86) 100%);"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(16,12,9,.5) 0%,transparent 46%);"></div>
+  <div style="position:relative;z-index:1;max-width:1200px;margin:0 auto;width:100%;padding:clamp(48px,7vw,96px) clamp(20px,5vw,56px);display:flex;justify-content:flex-end;">
+    <div data-reveal style="max-width:530px;text-align:right;">
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:#E6C98A;margin:0 0 20px;display:flex;align-items:center;justify-content:flex-end;gap:14px;">{{ eyebrow }}<span style="width:32px;height:1px;background:#CDA14E;display:inline-block;"></span></p>
+      <h2 style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(28px,3.8vw,46px);line-height:1.08;letter-spacing:-.01em;color:#FBF8F1;margin:0 0 20px;text-wrap:balance;">{{ heading }}</h2>
+      <p style="font-size:clamp(16px,1.3vw,18px);line-height:1.6;color:#E7DECB;margin:0 0 30px;">{{ body }}</p>
+      <a href="{{ href }}" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:16px;padding:16px 30px;border-radius:999px;background:#B68B3C;color:#211C18;transition:background .15s;" style-hover="background:#CDA14E;">{{ cta }} <span style="font-size:15px;">→</span></a>
+    </div>
+  </div>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:520},&quot;img&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;assets/hero-team.png&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;eyebrow&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Da Vinci Consulting&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;heading&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Ready to operate with confidence?&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;body&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;From credentialing to accreditation, we carry the complexity so your team can focus on care.&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;cta&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Schedule a Consultation&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;href&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Contact.dc.html&quot;,&quot;tsType&quot;:&quot;string&quot;}}">class Component extends DCLogic {
+  renderVals() {
+    const p = this.props || {};
+    return {
+      img: p.img ?? "assets/hero-team.png",
+      eyebrow: p.eyebrow ?? "Da Vinci Consulting",
+      heading: p.heading ?? "Ready to operate with confidence?",
+      body: p.body ?? "From credentialing to accreditation, we carry the complexity so your team can focus on care.",
+      cta: p.cta ?? "Schedule a Consultation",
+      href: p.href ?? "Contact.dc.html"
+    };
+  }
+}</script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Blog, Da Vinci Consulting Services | Behavioral Health Industry Insights</title>
+<meta name="description" content="Industry updates, trends, and tips for behavioral health leaders, regulatory excellence, professional collaboration, seamless operations, and innovation in leadership.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:#F6F1E7; -webkit-font-smoothing:antialiased; }
+  ::selection { background:#B68B3C; color:#211C18; }
+  @keyframes dvAmbient { 0%,100%{transform:scale(1);} 50%{transform:scale(1.04);} }
+  @keyframes dvRise { from { transform:translateY(24px); } to { transform:translateY(0); } }
+  [data-reveal]{ animation:dvRise .75s cubic-bezier(.22,1,.36,1) both; }
+  @media (max-width:940px){ [data-desktop-nav]{display:none !important;} [data-mobile-toggle]{display:inline-flex !important;} }
+  @media (min-width:941px){ [data-mobile-toggle]{display:none !important;} }
+  @media (prefers-reduced-motion:reduce){ [data-ambient]{animation:none !important;} [data-reveal]{animation:none !important;} }
+</style>
+</helmet>
+
+<div style="font-family:'Inter',sans-serif;color:#3A342C;background:#F6F1E7;overflow-x:hidden;">
+
+<dc-import name="SiteHeader" hint-size="100%,74px"></dc-import>
+
+<!-- HERO -->
+<section data-screen-label="Blog Hero" style="position:relative;margin-top:74px;min-height:clamp(400px,52vh,540px);display:flex;align-items:center;overflow:hidden;">
+  <img src="assets/hero-team.png" alt="Behavioral health professionals collaborating" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;"/>
+  <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(24,20,16,.90) 0%,rgba(24,20,16,.66) 42%,rgba(24,20,16,.24) 70%,rgba(24,20,16,.02) 100%);"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,16,12,.55) 0%,rgba(20,16,12,.10) 28%,transparent 52%);"></div>
+  <div data-reveal style="position:relative;z-index:1;max-width:1200px;margin:0 auto;width:100%;padding:clamp(56px,8vw,104px) clamp(20px,5vw,56px);">
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#E6C98A;margin:0 0 22px;display:flex;align-items:center;gap:14px;"><span style="width:32px;height:1px;background:#CDA14E;display:inline-block;"></span>Resources</p>
+    <h1 style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(36px,5.2vw,64px);line-height:1.03;letter-spacing:-.015em;color:#FBF8F1;margin:0 0 18px;max-width:780px;text-wrap:balance;">Industry updates, trends, and <span style="color:#CDA14E;font-style:italic;">tips.</span></h1>
+    <p style="font-size:clamp(17px,1.4vw,19px);line-height:1.6;color:#E7DECB;margin:0;max-width:560px;">Insight for behavioral health leaders navigating compliance, credentialing, and operational excellence.</p>
+  </div>
+</section>
+
+<!-- FILTERS + GRID -->
+<section style="padding:clamp(12px,2vw,24px) clamp(20px,5vw,56px) clamp(56px,8vw,104px);">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div data-reveal style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px;">
+      <sc-for list="{{ filters }}" as="cat" hint-placeholder-count="5">
+        <button onClick="{{ cat.select }}" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:10px 18px;border-radius:999px;cursor:pointer;border:1px solid {{ cat.border }};background:{{ cat.bg }};color:{{ cat.color }};transition:all .15s;">{{ cat.label }}</button>
+      </sc-for>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px;">
+      <sc-for list="{{ visiblePosts }}" as="p" hint-placeholder-count="6">
+        <a href="BlogPost.dc.html" style="text-decoration:none;display:flex;flex-direction:column;background:#FBF8F1;border:1px solid #E3D9C6;border-radius:14px;overflow:hidden;transition:transform .18s,box-shadow .18s,border-color .18s;" style-hover="transform:translateY(-4px);box-shadow:0 14px 34px rgba(33,28,24,.1);border-color:#B68B3C;">
+          <div style="position:relative;aspect-ratio:16/10;background:repeating-linear-gradient(135deg,#EFE7D6 0 10px,#F6F1E7 10px 20px);display:flex;align-items:center;justify-content:center;border-bottom:1px solid #E3D9C6;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;color:#A8997F;text-transform:uppercase;">[ article image ]</span>
+            <span style="position:absolute;top:12px;left:12px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;background:#211C18;color:#CDA14E;padding:6px 11px;border-radius:999px;">{{ p.cat }}</span>
+          </div>
+          <div style="padding:24px;display:flex;flex-direction:column;flex:1;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:#A8997F;margin-bottom:12px;">COMING SOON</span>
+            <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:21px;line-height:1.2;color:#211C18;margin:0 0 18px;flex:1;">{{ p.title }}</h3>
+            <span style="color:#876728;font-weight:600;font-size:14px;">Read article →</span>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+
+    <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}">
+      <div style="text-align:center;padding:72px 24px;border:1px dashed #D8CDB6;border-radius:16px;">
+        <p style="font-family:'Fraunces',serif;font-size:24px;color:#211C18;margin:0 0 8px;">No articles in this category yet.</p>
+        <p style="font-size:15px;color:#6B6155;margin:0;">New insights are on the way.</p>
+      </div>
+    </sc-if>
+  </div>
+</section>
+
+<dc-import name="ImageBanner" img="assets/hero-team.png" eyebrow="Stay informed" heading="Insight for behavioral health leaders." body="Regulatory updates, accreditation tips, and operational strategy for your organization." cta="Schedule a Consultation" href="Contact.dc.html" hint-size="100%,520px"></dc-import>
+
+<dc-import name="SiteFooter" hint-size="100%,560px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { active: "All" };
+  get cats() { return ["All", "Regulatory Excellence", "Professional Collaboration", "Seamless Operations", "Innovation in Leadership"]; }
+  get posts() {
+    return [
+      { title: "Preparing for your first Joint Commission survey", cat: "Regulatory Excellence" },
+      { title: "What Medicaid credentialing actually requires in Arizona", cat: "Regulatory Excellence" },
+      { title: "Building a culture of compliance accountability", cat: "Professional Collaboration" },
+      { title: "Streamlining clinical documentation workflows", cat: "Seamless Operations" },
+      { title: "Audit-ready: a quarterly compliance checklist", cat: "Seamless Operations" },
+      { title: "From clinician to leader: developing your team", cat: "Innovation in Leadership" }
+    ];
+  }
+  get filters() {
+    return this.cats.map(c => {
+      const on = c === this.state.active;
+      return {
+        label: c, select: () => this.setState({ active: c }),
+        bg: on ? "#211C18" : "#FBF8F1",
+        color: on ? "#FBF8F1" : "#6B6155",
+        border: on ? "#211C18" : "#E3D9C6"
+      };
+    });
+  }
+  renderVals() {
+    const active = this.state.active;
+    const visible = active === "All" ? this.posts : this.posts.filter(p => p.cat === active);
+    return { filters: this.filters, visiblePosts: visible, empty: visible.length === 0 };
+  }
+}
+</script>
+</body>
+</html>

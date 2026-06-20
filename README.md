@@ -1,25 +1,78 @@
-# CODING AGENTS: READ THIS FIRST
+# Da Vinci Consulting Services — Website
 
-This is a **handoff bundle** from Claude Design (claude.ai/design).
+Production website for **Da Vinci Consulting Services**, a behavioral-healthcare
+compliance, Medicaid-credentialing, Joint Commission accreditation, state-licensing,
+and operational-leadership consultancy in Phoenix, AZ.
 
-A user mocked up designs in HTML/CSS/JS using an AI design tool, then exported this bundle so a coding agent can implement the designs for real.
+Brand thesis: **"Renaissance precision for behavioral healthcare"** — gold, ink, and
+parchment with a recurring Vitruvian *circle-inscribed-in-square* proportion motif.
 
-## What you should do — IMPORTANT
+Built from the Claude Design handoff (the original prototypes live in
+[`project/`](./project) and the full build spec in
+[`project/design_handoff_davinci_site/README.md`](./project/design_handoff_davinci_site/README.md)).
 
-**Read the chat transcripts first.** There are 1 chat transcript(s) in `chats/`. The transcripts show the full back-and-forth between the user and the design assistant — they tell you **what the user actually wants** and **where they landed** after iterating. Don't skip them. The final HTML files are the output, but the chat is where the intent lives.
+## Stack
 
-**Read `project/Home.dc.html` in full.** The user had this file open when they triggered the handoff, so it's almost certainly the primary design they want built. Read it top to bottom — don't skim. Then **follow its imports**: open every file it pulls in (shared components, CSS, scripts) so you understand how the pieces fit together before you start implementing.
+- **Next.js 14** (App Router) + **React 18** + **TypeScript**
+- **Tailwind CSS** — design tokens in [`tailwind.config.ts`](./tailwind.config.ts)
+- **Framer Motion** — scroll reveals, the process-arc draw, hero geometry
+- **Supabase** — form submissions + newsletter
+- Self-hosted **Fraunces / Inter / IBM Plex Mono** via `next/font`
 
-**If anything is ambiguous, ask the user to confirm before you start implementing.** It's much cheaper to clarify scope up front than to build the wrong thing.
+## Getting started
 
-## About the design files
+```bash
+npm install
+cp .env.example .env.local   # fill in Supabase keys (optional for local dev)
+npm run dev                  # http://localhost:3000
+```
 
-The design medium is **HTML/CSS/JS** — these are prototypes, not production code. Your job is to **recreate them pixel-perfectly** in whatever technology makes sense for the target codebase (React, Vue, native, whatever fits). Match the visual output; don't copy the prototype's internal structure unless it happens to fit.
+Without Supabase env vars the site runs fully — form submissions are validated
+and confirmed in the UI, and logged server-side instead of persisted.
 
-**Don't render these files in a browser or take screenshots unless the user asks you to.** Everything you need — dimensions, colors, layout rules — is spelled out in the source. Read the HTML and CSS directly; a screenshot won't tell you anything they don't.
+## Routes
 
-## Bundle contents
+| Route | Description |
+|---|---|
+| `/` | Home — full section stack |
+| `/services` | Services index (all 8) |
+| `/services/[slug]` | One template, 8 services (data in `lib/services.ts`) |
+| `/about` · `/contact` · `/blog` · `/blog/[slug]` | Content pages |
+| `/privacy` · `/terms` | Legal (template — route through counsel) |
+| `/thank-you` · `not-found` | Form success + 404 (noindex) |
 
-- `README.md` — this file
-- `chats/` — conversation transcripts (read these!)
-- `project/` — the `# Da Vinci Consulting Services — Full Site Content (Verbatim)**Companion to th` project files (HTML prototypes, assets, components)
+## Forms & Supabase
+
+Three route handlers (`app/api/{contact,lead,newsletter}/route.ts`) validate input
+and insert into Supabase using the service-role key.
+
+1. Create a Supabase project.
+2. Run [`supabase/schema.sql`](./supabase/schema.sql) in the SQL editor.
+3. Set the env vars from [`.env.example`](./.env.example) (`.env.local` locally,
+   Project Settings → Environment Variables on Vercel).
+
+## Deploy to Vercel
+
+1. Push this repo to GitHub (already wired to the project remote).
+2. Import the repo at [vercel.com/new](https://vercel.com/new) — Next.js is
+   auto-detected; no build config needed.
+3. Add the three Supabase env vars in the Vercel project settings.
+4. Deploy. Set the production domain when ready.
+
+## Project structure
+
+```
+app/            routes (App Router) + API handlers + sitemap/robots
+components/     shared chrome (header/footer), section components, forms, motion
+lib/            site constants, services data, blog data, supabase, form helpers
+public/assets/  logos + the four real section photos
+supabase/       schema.sql
+project/        original Claude Design prototypes + handoff spec (reference)
+```
+
+## Still open (client to confirm)
+
+See §"Open questions" in the handoff README. In short: real photography for the
+placeholder slots (founder portrait, team cards, blog images), partner-logo display
+rights, final FAQ/testimonial approval, the form notification email + newsletter ESP,
+and legal review of Privacy/Terms.

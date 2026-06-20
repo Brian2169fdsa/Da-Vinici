@@ -61,11 +61,11 @@ export default function ContactPage() {
                   <span className="flex h-11 w-11 flex-none items-center justify-center rounded-[11px] border border-line bg-parchment">
                     <Icon className="h-[18px] w-[18px] text-gold" strokeWidth={1.6} aria-hidden />
                   </span>
-                  <span>
+                  <span className="min-w-0">
                     <span className="block font-mono text-[11px] uppercase tracking-[.1em] text-[#A8997F]">
                       {label}
                     </span>
-                    <span className="block text-[15px] font-semibold text-ink">{value}</span>
+                    <span className="block break-words text-[15px] font-semibold text-ink">{value}</span>
                   </span>
                 </a>
               ))}

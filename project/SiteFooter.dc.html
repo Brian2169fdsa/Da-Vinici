@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="font-family:'Inter',sans-serif;">
+<section style="padding:clamp(48px,7vw,88px) clamp(20px,5vw,56px) clamp(56px,8vw,96px);background:#F6F1E7;">
+  <div style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px 48px;align-items:center;">
+    <div>
+      <h3 style="font-family:'Fraunces',serif;font-weight:550;font-size:clamp(22px,2.8vw,30px);line-height:1.15;color:#211C18;margin:0 0 8px;">Don't miss the latest industry updates.</h3>
+      <p style="font-size:15px;line-height:1.55;color:#6B6155;margin:0;">Trends, tips, and regulatory insight for behavioral health leaders.</p>
+    </div>
+    <div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <input type="email" placeholder="Your email" value="{{ email }}" onInput="{{ onEmail }}" style="flex:1;min-width:180px;font-family:'Inter';font-size:15px;padding:14px 16px;border-radius:10px;border:1px solid #E3D9C6;background:#FBF8F1;color:#211C18;outline:none;"/>
+        <button onClick="{{ subscribe }}" style="font-family:'Inter';font-weight:600;font-size:15px;padding:14px 24px;border-radius:10px;border:none;background:#211C18;color:#FBF8F1;cursor:pointer;">{{ subscribeLabel }}</button>
+      </div>
+      <p style="font-size:12.5px;color:#A8997F;margin:12px 0 0;">By subscribing, you accept our Privacy Policy.</p>
+    </div>
+  </div>
+</section>
+
+<footer style="background:#211C18;color:#C9C0B0;padding:clamp(56px,7vw,88px) clamp(20px,5vw,56px) 36px;position:relative;overflow:hidden;">
+  <svg viewBox="0 0 400 400" style="position:absolute;bottom:-120px;right:-80px;width:400px;height:400px;opacity:.05;"><rect x="70" y="70" width="260" height="260" fill="none" stroke="#B68B3C" stroke-width="1"/><circle cx="200" cy="200" r="130" fill="none" stroke="#B68B3C" stroke-width="1"/><line x1="200" y1="60" x2="200" y2="340" stroke="#B68B3C" stroke-width=".6"/><line x1="60" y1="200" x2="340" y2="200" stroke="#B68B3C" stroke-width=".6"/></svg>
+  <div style="max-width:1200px;margin:0 auto;position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;">
+    <div style="min-width:240px;">
+      <div style="margin-bottom:22px;">
+        <img src="assets/logo-white.png" alt="Da Vinci Consulting Services" style="height:46px;width:auto;display:block;"/>
+      </div>
+      <p style="font-size:14.5px;line-height:1.6;color:#9b9180;margin:0 0 20px;max-width:300px;">Compliance, credentialing, and operational consulting for behavioral health organizations, Phoenix-based, serving Arizona and beyond.</p>
+      <a href="tel:4806068602" style="text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.06em;color:#CDA14E;">CALL · 480-606-8602</a>
+    </div>
+    <div>
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#7a7164;margin:0 0 16px;">NAVIGATION</p>
+      <div style="display:flex;flex-direction:column;gap:11px;font-size:14.5px;">
+        <a href="Home.dc.html" style="text-decoration:none;color:#C9C0B0;" style-hover="color:#FBF8F1;">Home</a>
+        <a href="About.dc.html" style="text-decoration:none;color:#C9C0B0;" style-hover="color:#FBF8F1;">About Us</a>
+        <a href="Services.dc.html" style="text-decoration:none;color:#C9C0B0;" style-hover="color:#FBF8F1;">Services</a>
+        <a href="Blog.dc.html" style="text-decoration:none;color:#C9C0B0;" style-hover="color:#FBF8F1;">Blog</a>
+        <a href="Contact.dc.html" style="text-decoration:none;color:#C9C0B0;" style-hover="color:#FBF8F1;">Contact</a>
+      </div>
+    </div>
+    <div>
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#7a7164;margin:0 0 16px;">SERVICES</p>
+      <div style="display:flex;flex-direction:column;gap:11px;font-size:14px;">
+        <sc-for list="{{ services }}" as="svc" hint-placeholder-count="8">
+          <a href="{{ svc.href }}" style="text-decoration:none;color:#C9C0B0;" style-hover="color:#FBF8F1;">{{ svc.name }}</a>
+        </sc-for>
+      </div>
+    </div>
+    <div>
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#7a7164;margin:0 0 16px;">CONTACT</p>
+      <p style="font-size:14px;line-height:1.6;color:#9b9180;margin:0 0 14px;">1141 East Glendale Avenue #1054<br>Phoenix, Arizona 85020</p>
+      <a href="mailto:tony@davinciconsultingservices.com" style="text-decoration:none;color:#C9C0B0;font-size:14px;word-break:break-all;display:block;margin-bottom:20px;" style-hover="color:#FBF8F1;">tony@davinciconsultingservices.com</a>
+      <a href="Contact.dc.html" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;padding:12px 22px;border-radius:999px;background:#B68B3C;color:#211C18;">Schedule a Consultation →</a>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:40px auto 0;position:relative;border-top:1px solid #332d26;padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;font-size:12.5px;color:#7a7164;">
+    <span>© 2026 Da Vinci Consulting Services. All Rights Reserved.</span>
+    <span style="display:flex;gap:20px;flex-wrap:wrap;"><a href="Privacy.dc.html" style="text-decoration:none;color:#7a7164;" style-hover="color:#C9C0B0;">Privacy Policy</a><a href="Terms.dc.html" style="text-decoration:none;color:#7a7164;" style-hover="color:#C9C0B0;">Terms of Service</a><span>Built by Phoenix Creative Works</span></span>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { email: "", subscribed: false };
+  get services() {
+    return [
+      { name: "Medicaid Credentialing", href: "Medicaid-Credentialing.dc.html" },
+      { name: "Joint Commission Prep", href: "Joint-Commission-Prep.dc.html" },
+      { name: "Compliance Training", href: "Compliance-Training.dc.html" },
+      { name: "State Licensing", href: "State-Licensing.dc.html" },
+      { name: "Company Integrity Audit", href: "Integrity-Audit.dc.html" },
+      { name: "Risk Management", href: "Risk-Management.dc.html" },
+      { name: "Policies & Procedures", href: "Policies-Procedures.dc.html" },
+      { name: "Leadership Development", href: "Leadership-Development.dc.html" }
+    ];
+  }
+  renderVals() {
+    return {
+      services: this.services,
+      email: this.state.email,
+      subscribeLabel: this.state.subscribed ? "Subscribed ✓" : "Subscribe",
+      onEmail: (e) => this.setState({ email: e.target.value }),
+      subscribe: () => { if (this.state.email.indexOf("@") > 0) this.setState({ subscribed: true }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

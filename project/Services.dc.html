@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Services, Da Vinci Consulting Services | Behavioral Healthcare Compliance</title>
+<meta name="description" content="Core consulting services for behavioral health organizations: Medicaid credentialing, Joint Commission prep, compliance training, state licensing, audits, risk management, policies, and leadership development.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:#F6F1E7; -webkit-font-smoothing:antialiased; }
+  ::selection { background:#B68B3C; color:#211C18; }
+  @keyframes dvAmbient { 0%,100%{transform:scale(1);} 50%{transform:scale(1.04);} }
+  @keyframes dvRise { from { transform:translateY(24px); } to { transform:translateY(0); } }
+  [data-reveal]{ animation:dvRise .75s cubic-bezier(.22,1,.36,1) both; }
+  @media (max-width:940px){ [data-desktop-nav]{display:none !important;} [data-mobile-toggle]{display:inline-flex !important;} }
+  @media (min-width:941px){ [data-mobile-toggle]{display:none !important;} }
+  @media (prefers-reduced-motion:reduce){ [data-ambient]{animation:none !important;} [data-reveal]{opacity:1 !important;animation:none !important;} }
+</style>
+</helmet>
+
+<div style="font-family:'Inter',sans-serif;color:#3A342C;background:#F6F1E7;overflow-x:hidden;">
+
+<dc-import name="SiteHeader" hint-size="100%,74px"></dc-import>
+
+<!-- PAGE HERO -->
+<section data-screen-label="Services Hero" style="position:relative;margin-top:74px;min-height:clamp(440px,60vh,580px);display:flex;align-items:center;overflow:hidden;">
+  <img src="assets/team-experts.png" alt="Da Vinci consultants reviewing compliance documentation" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;"/>
+  <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(24,20,16,.90) 0%,rgba(24,20,16,.66) 42%,rgba(24,20,16,.24) 70%,rgba(24,20,16,.02) 100%);"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,16,12,.55) 0%,rgba(20,16,12,.10) 28%,transparent 52%);"></div>
+  <div data-reveal style="position:relative;z-index:1;max-width:1200px;margin:0 auto;width:100%;padding:clamp(56px,8vw,112px) clamp(20px,5vw,56px);">
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#E6C98A;margin:0 0 22px;display:flex;align-items:center;gap:14px;"><span style="width:32px;height:1px;background:#CDA14E;display:inline-block;"></span>Our services</p>
+    <h1 style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(36px,5.2vw,66px);line-height:1.03;letter-spacing:-.015em;color:#FBF8F1;margin:0 0 22px;max-width:800px;text-wrap:balance;">Core consulting services for behavioral health <span style="color:#CDA14E;font-style:italic;">organizations.</span></h1>
+    <p style="font-size:clamp(17px,1.4vw,19px);line-height:1.55;color:#E7DECB;margin:0 0 34px;max-width:560px;"><strong style="color:#FBF8F1;">Certified. Compliant. Trusted.</strong> We work to the same standards your facility is measured by.</p>
+    <a href="Contact.dc.html" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:16px;padding:16px 30px;border-radius:999px;background:#B68B3C;color:#211C18;transition:background .15s;" style-hover="background:#CDA14E;">Schedule a Consultation →</a>
+  </div>
+</section>
+
+<!-- SERVICE GRID -->
+<section style="padding:clamp(56px,8vw,104px) clamp(20px,5vw,56px);">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px;">
+    <sc-for list="{{ services }}" as="s" hint-placeholder-count="8">
+      <a data-reveal href="{{ s.href }}" style="text-decoration:none;position:relative;background:#FBF8F1;border:1px solid #E3D9C6;border-radius:14px;padding:30px 26px;display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s,border-color .18s;" style-hover="transform:translateY(-4px);box-shadow:0 14px 34px rgba(33,28,24,.1);border-color:#B68B3C;">
+        <span style="position:absolute;top:10px;left:10px;width:9px;height:9px;border-left:1px solid #B68B3C;border-top:1px solid #B68B3C;"></span>
+        <span style="position:absolute;top:10px;right:10px;width:9px;height:9px;border-right:1px solid #B68B3C;border-top:1px solid #B68B3C;"></span>
+        <span style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
+          <span style="flex:none;width:46px;height:46px;border-radius:10px;background:#F6F1E7;border:1px solid #E3D9C6;display:flex;align-items:center;justify-content:center;"><span style="width:13px;height:13px;border:1.6px solid #B68B3C;transform:rotate(45deg);display:block;"></span></span>
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;color:#A8997F;">{{ s.num }}</span>
+        </span>
+        <span style="display:block;font-family:'Fraunces',serif;font-weight:600;font-size:21px;color:#211C18;line-height:1.2;margin-bottom:10px;">{{ s.name }}</span>
+        <span style="display:block;font-size:14.5px;line-height:1.6;color:#6B6155;margin-bottom:20px;flex:1;">{{ s.blurb }}</span>
+        <span style="color:#876728;font-weight:600;font-size:14px;">{{ s.cta }} →</span>
+      </a>
+    </sc-for>
+  </div>
+</section>
+
+<!-- WHY CHOOSE -->
+<section style="padding:clamp(56px,8vw,104px) clamp(20px,5vw,56px);background:#EDE3D0;border-top:1px solid #E6DBC8;border-bottom:1px solid #E6DBC8;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div data-reveal style="max-width:640px;margin-bottom:48px;">
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#6B6155;margin:0 0 16px;display:flex;align-items:center;gap:12px;"><span style="width:28px;height:1px;background:#B68B3C;display:inline-block;"></span>Why Da Vinci</p>
+      <h2 style="font-family:'Fraunces',serif;font-weight:550;font-size:clamp(28px,4vw,42px);line-height:1.1;color:#211C18;margin:0 0 16px;">Partnership over consulting.</h2>
+      <p style="font-size:17px;line-height:1.65;color:#3A342C;margin:0;">With over 13 years of experience, we deliver tailored, hands-on solutions that improve compliance, boost efficiency, and support sustainable growth.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;">
+      <sc-for list="{{ diffs }}" as="d" hint-placeholder-count="4">
+        <div data-reveal data-reveal-delay="{{ d.delay }}" style="background:#F6F1E7;border:1px solid #E3D9C6;border-radius:14px;padding:28px 24px;">
+          <div style="width:42px;height:42px;border-radius:10px;background:#1F3D32;display:flex;align-items:center;justify-content:center;margin-bottom:18px;"><span style="width:11px;height:11px;border:1.6px solid #CDA14E;transform:rotate(45deg);display:block;"></span></div>
+          <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:20px;color:#211C18;margin:0 0 10px;">{{ d.title }}</h3>
+          <p style="font-size:14.5px;line-height:1.6;color:#6B6155;margin:0;">{{ d.desc }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section style="padding:clamp(20px,4vw,40px) clamp(20px,5vw,56px) clamp(40px,5vw,56px);">
+  <div data-reveal style="max-width:1200px;margin:0 auto;border-radius:20px;background:linear-gradient(120deg,#B68B3C 0%,#876728 100%);padding:clamp(48px,7vw,88px) clamp(28px,5vw,72px);position:relative;overflow:hidden;text-align:center;">
+    <svg viewBox="0 0 300 300" style="position:absolute;bottom:-80px;right:-40px;width:300px;height:300px;opacity:.14;"><rect x="50" y="50" width="200" height="200" fill="none" stroke="#FBF8F1" stroke-width="1.5"/><circle cx="150" cy="150" r="100" fill="none" stroke="#FBF8F1" stroke-width="1.5"/></svg>
+    <div style="position:relative;max-width:680px;margin:0 auto;">
+      <h2 style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(28px,4vw,44px);line-height:1.1;color:#FBF8F1;margin:0 0 18px;">Let's make your operations smoother, stronger, and fully aligned.</h2>
+      <p style="font-size:17px;line-height:1.6;color:#F6F1E7;opacity:.92;margin:0 0 32px;">Join our ever-growing list of organizations who have worked with us.</p>
+      <a href="Contact.dc.html" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:16px;padding:17px 34px;border-radius:999px;background:#211C18;color:#FBF8F1;transition:background .15s;" style-hover="background:#2C2620;">Let's Talk Strategy →</a>
+    </div>
+  </div>
+</section>
+
+<dc-import name="ImageBanner" img="assets/team-experts.png" eyebrow="One expert team" heading="Every regulation, handled in one place." body="Compliance, credentialing, licensing, and leadership, delivered by specialists who work to your standards." cta="Talk to a Consultant" href="Contact.dc.html" hint-size="100%,520px"></dc-import>
+
+<dc-import name="SiteFooter" hint-size="100%,560px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  get services() {
+    return [
+      { num: "01", name: "Company Integrity Audit", blurb: "We examine billing codes, clinical documentation, payor contracts, and regulatory compliance, optimizing revenue and aligning your facility with industry standards.", cta: "Review your audit blueprint", href: "Integrity-Audit.dc.html" },
+      { num: "02", name: "Healthcare Quality Compliance Training", blurb: "Mock surveys simulate Joint Commission assessments, helping your organization stay audit-ready. We identify weak points and prepare your staff.", cta: "Prepare your team", href: "Compliance-Training.dc.html" },
+      { num: "03", name: "Risk Management Solutions", blurb: "Targeted training on the latest behavioral health regulations. Your staff will identify risk, reduce liability, and maintain compliance in a changing environment.", cta: "Explore risk training", href: "Risk-Management.dc.html" },
+      { num: "04", name: "Joint Commission Survey Assistance", blurb: "We guide you through every stage, from initial surveys to triennial assessments, so your facility meets standards, avoids citations, and earns accreditation.", cta: "Get accreditation help", href: "Joint-Commission-Prep.dc.html" },
+      { num: "05", name: "Policies & Procedures Support", blurb: "Whether launching or refining a program, we build Joint Commission–aligned policies that reflect your operations and improve efficiency.", cta: "Customize your policies", href: "Policies-Procedures.dc.html" },
+      { num: "06", name: "Medicaid Credentialing & Application", blurb: "We handle provider ID setup and facility certification, navigating state and federal systems to prevent delays and maximize service delivery.", cta: "Start credentialing", href: "Medicaid-Credentialing.dc.html" },
+      { num: "07", name: "Leadership Development", blurb: "We equip behavioral health leaders with the tools to manage teams, make strategic decisions, and guide growth, collaboration, communication, sustainability.", cta: "Build leadership skills", href: "Leadership-Development.dc.html" },
+      { num: "08", name: "State Department of Health Licensing", blurb: "We manage your Department of Health submissions, inspections, and documentation. From application to approval, compliance every step of the way.", cta: "Start licensing support", href: "State-Licensing.dc.html" }
+    ];
+  }
+  get diffs() {
+    return [
+      { title: "Trusted Expertise", desc: "13+ years leading in Medicaid credentialing, Joint Commission prep, risk mitigation, and operational systems design.", delay: 0 },
+      { title: "Tailored Support", desc: "Custom strategies, from state licensing to leadership coaching, designed for your structure, size, and state requirements.", delay: 80 },
+      { title: "Measurable Results", desc: "We help facilities achieve accreditation, streamline operations, and boost performance with repeatable, data-informed strategies.", delay: 160 },
+      { title: "Partnership Over Consulting", desc: "We don't just advise, we embed with your team to build compliant, efficient, mission-aligned systems that last.", delay: 240 }
+    ];
+  }
+  renderVals() {
+    return { services: this.services, diffs: this.diffs };
+  }
+  componentDidMount() {
+    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+    document.querySelectorAll("[data-reveal][data-reveal-delay]").forEach(el => {
+      el.style.animationDelay = (el.getAttribute("data-reveal-delay") || 0) + "ms";
+    });
+  }
+}
+</script>
+</body>
+</html>

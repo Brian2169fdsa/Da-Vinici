@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Contact, Da Vinci Consulting Services | Schedule a Consultation</title>
+<meta name="description" content="Contact Da Vinci Consulting Services to discuss behavioral healthcare compliance, Medicaid credentialing, and operational efficiency. Phoenix, AZ · 480-606-8602.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:#F6F1E7; -webkit-font-smoothing:antialiased; }
+  ::selection { background:#B68B3C; color:#211C18; }
+  @keyframes dvAmbient { 0%,100%{transform:scale(1);} 50%{transform:scale(1.04);} }
+  @keyframes dvRise { from { transform:translateY(24px); } to { transform:translateY(0); } }
+  [data-reveal]{ animation:dvRise .75s cubic-bezier(.22,1,.36,1) both; }
+  @media (max-width:940px){ [data-desktop-nav]{display:none !important;} [data-mobile-toggle]{display:inline-flex !important;} }
+  @media (min-width:941px){ [data-mobile-toggle]{display:none !important;} }
+  @media (prefers-reduced-motion:reduce){ [data-ambient]{animation:none !important;} [data-reveal]{animation:none !important;} }
+</style>
+</helmet>
+
+<div style="font-family:'Inter',sans-serif;color:#3A342C;background:#F6F1E7;overflow-x:hidden;">
+
+<dc-import name="SiteHeader" hint-size="100%,74px"></dc-import>
+
+<!-- HERO -->
+<section data-screen-label="Contact Hero" style="position:relative;margin-top:74px;min-height:clamp(420px,56vh,560px);display:flex;align-items:center;overflow:hidden;">
+  <img src="assets/team-experts.png" alt="A senior consultant meeting with a client" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;"/>
+  <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(24,20,16,.90) 0%,rgba(24,20,16,.66) 42%,rgba(24,20,16,.24) 70%,rgba(24,20,16,.02) 100%);"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,16,12,.55) 0%,rgba(20,16,12,.10) 28%,transparent 52%);"></div>
+  <div data-reveal style="position:relative;z-index:1;max-width:1200px;margin:0 auto;width:100%;padding:clamp(56px,8vw,108px) clamp(20px,5vw,56px);">
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#E6C98A;margin:0 0 22px;display:flex;align-items:center;gap:14px;"><span style="width:32px;height:1px;background:#CDA14E;display:inline-block;"></span>Let's talk</p>
+    <h1 style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(36px,5.2vw,64px);line-height:1.03;letter-spacing:-.015em;color:#FBF8F1;margin:0 0 22px;max-width:780px;text-wrap:balance;">Take your organization to the next <span style="color:#CDA14E;font-style:italic;">level.</span></h1>
+    <p style="font-size:clamp(17px,1.4vw,19px);line-height:1.6;color:#E7DECB;margin:0 0 34px;max-width:560px;">Ready to achieve compliance, operational efficiency, and lasting success? Contact us today to discuss how we can help.</p>
+    <a href="tel:4806068602" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:16px;padding:16px 30px;border-radius:999px;background:#B68B3C;color:#211C18;transition:background .15s;" style-hover="background:#CDA14E;">Call 480-606-8602 →</a>
+  </div>
+</section>
+
+<!-- TWO COLUMN -->
+<section style="padding:clamp(24px,4vw,48px) clamp(20px,5vw,56px) clamp(56px,8vw,104px);">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(32px,5vw,64px);align-items:start;">
+    <!-- LEFT -->
+    <div data-reveal>
+      <div style="display:flex;flex-direction:column;gap:4px;margin-bottom:34px;">
+        <sc-for list="{{ contacts }}" as="c" hint-placeholder-count="3">
+          <a href="{{ c.href }}" style="text-decoration:none;display:flex;align-items:flex-start;gap:16px;padding:20px 0;border-bottom:1px solid #E3D9C6;">
+            <span style="flex:none;width:42px;height:42px;border-radius:10px;background:#FBF8F1;border:1px solid #E3D9C6;display:flex;align-items:center;justify-content:center;"><span style="width:12px;height:12px;border:1.6px solid #B68B3C;transform:rotate(45deg);display:block;"></span></span>
+            <span>
+              <span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#A8997F;margin-bottom:5px;">{{ c.label }}</span>
+              <span style="display:block;font-size:16px;font-weight:600;color:#211C18;line-height:1.4;">{{ c.value }}</span>
+            </span>
+          </a>
+        </sc-for>
+      </div>
+      <div style="background:#211C18;border-radius:16px;padding:32px;position:relative;overflow:hidden;">
+        <svg viewBox="0 0 160 160" style="position:absolute;top:-20px;right:-20px;width:160px;height:160px;opacity:.1;"><rect x="30" y="30" width="100" height="100" fill="none" stroke="#B68B3C" stroke-width="1"/><circle cx="80" cy="80" r="50" fill="none" stroke="#B68B3C" stroke-width="1"/></svg>
+        <p style="position:relative;font-family:'Fraunces',serif;font-style:italic;font-size:20px;line-height:1.4;color:#FBF8F1;margin:0 0 8px;">"Fast response from a senior consultant. No pressure, just clarity."</p>
+        <p style="position:relative;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;color:#CDA14E;margin:0;">EST. 2016 · PHOENIX, ARIZONA</p>
+      </div>
+    </div>
+
+    <!-- RIGHT FORM -->
+    <div data-reveal data-reveal-delay="100">
+      <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+        <div style="text-align:center;background:#FBF8F1;border:1px solid #E3D9C6;border-radius:16px;padding:56px 32px;">
+          <div style="width:56px;height:56px;margin:0 auto 20px;border-radius:50%;border:1.5px solid #1F8A5B;display:flex;align-items:center;justify-content:center;"><span style="color:#1F8A5B;font-size:24px;">✓</span></div>
+          <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:26px;color:#211C18;margin:0 0 10px;">Thank you, message received.</h3>
+          <p style="font-size:15.5px;line-height:1.6;color:#6B6155;margin:0;max-width:360px;margin:0 auto;">A senior consultant will reach out shortly to discuss your needs.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+        <div style="background:#FBF8F1;border:1px solid #E3D9C6;border-radius:16px;padding:clamp(28px,4vw,40px);">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:16px;">
+            <label style="display:block;"><span style="display:block;font-size:13px;font-weight:600;color:#3A342C;margin-bottom:7px;">First name</span><input value="{{ f.first }}" onInput="{{ setFirst }}" style="width:100%;font-family:'Inter';font-size:15px;padding:13px 15px;border-radius:10px;border:1px solid #E3D9C6;background:#FFF;color:#211C18;outline:none;"/></label>
+            <label style="display:block;"><span style="display:block;font-size:13px;font-weight:600;color:#3A342C;margin-bottom:7px;">Last name</span><input value="{{ f.last }}" onInput="{{ setLast }}" style="width:100%;font-family:'Inter';font-size:15px;padding:13px 15px;border-radius:10px;border:1px solid #E3D9C6;background:#FFF;color:#211C18;outline:none;"/></label>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:16px;">
+            <label style="display:block;"><span style="display:block;font-size:13px;font-weight:600;color:#3A342C;margin-bottom:7px;">Email</span><input value="{{ f.email }}" onInput="{{ setEmail }}" style="width:100%;font-family:'Inter';font-size:15px;padding:13px 15px;border-radius:10px;border:1px solid #E3D9C6;background:#FFF;color:#211C18;outline:none;"/></label>
+            <label style="display:block;"><span style="display:block;font-size:13px;font-weight:600;color:#3A342C;margin-bottom:7px;">Phone number</span><input value="{{ f.phone }}" onInput="{{ setPhone }}" style="width:100%;font-family:'Inter';font-size:15px;padding:13px 15px;border-radius:10px;border:1px solid #E3D9C6;background:#FFF;color:#211C18;outline:none;"/></label>
+          </div>
+          <label style="display:block;margin-bottom:16px;"><span style="display:block;font-size:13px;font-weight:600;color:#3A342C;margin-bottom:7px;">Type of service requested</span>
+            <select value="{{ f.service }}" onChange="{{ setService }}" style="width:100%;font-family:'Inter';font-size:15px;padding:13px 15px;border-radius:10px;border:1px solid #E3D9C6;background:#FFF;color:#211C18;outline:none;appearance:none;cursor:pointer;">
+              <sc-for list="{{ serviceOptions }}" as="o" hint-placeholder-count="11">
+                <option value="{{ o }}">{{ o }}</option>
+              </sc-for>
+            </select>
+          </label>
+          <label style="display:block;margin-bottom:8px;"><span style="display:block;font-size:13px;font-weight:600;color:#3A342C;margin-bottom:7px;">Comment</span><textarea value="{{ f.comment }}" onInput="{{ setComment }}" rows="4" placeholder="Tell us about your facility and goals." style="width:100%;font-family:'Inter';font-size:15px;padding:13px 15px;border-radius:10px;border:1px solid #E3D9C6;background:#FFF;color:#211C18;outline:none;resize:vertical;"></textarea></label>
+          <sc-if value="{{ err }}" hint-placeholder-val="{{ false }}"><p style="font-size:13px;color:#B4452F;margin:4px 0 0;">{{ errMsg }}</p></sc-if>
+          <button onClick="{{ submit }}" style="margin-top:16px;width:100%;font-family:'Inter';font-weight:600;font-size:16px;padding:16px;border-radius:10px;border:none;background:#B68B3C;color:#211C18;cursor:pointer;transition:background .15s;" style-hover="background:#CDA14E;">Schedule a Consultation</button>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding:clamp(56px,8vw,104px) clamp(20px,5vw,56px);background:#EDE3D0;border-top:1px solid #E6DBC8;">
+  <div style="max-width:880px;margin:0 auto;">
+    <div data-reveal style="text-align:center;margin-bottom:44px;">
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#6B6155;margin:0 0 16px;">Frequently asked questions</p>
+      <h2 style="font-family:'Fraunces',serif;font-weight:550;font-size:clamp(28px,4vw,42px);line-height:1.1;color:#211C18;margin:0;">Answers, before you ask.</h2>
+    </div>
+    <div data-reveal style="border-top:1px solid #E3D9C6;">
+      <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="4">
+        <div style="border-bottom:1px solid #E3D9C6;">
+          <button onClick="{{ q.toggle }}" style="width:100%;background:transparent;border:none;cursor:pointer;text-align:left;padding:24px 0;display:flex;align-items:center;justify-content:space-between;gap:20px;font-family:'Fraunces',serif;font-weight:500;font-size:clamp(18px,2.2vw,22px);color:#211C18;">
+            {{ q.q }}
+            <span style="flex:none;width:26px;height:26px;border:1px solid #B68B3C;border-radius:50%;color:#876728;font-size:18px;display:flex;align-items:center;justify-content:center;line-height:1;">{{ q.sign }}</span>
+          </button>
+          <sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:0;padding:0 0 26px;font-size:16px;line-height:1.65;color:#6B6155;max-width:680px;">{{ q.a }}</p>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<dc-import name="ImageBanner" img="assets/team-experts.png" eyebrow="Let's talk" heading="A senior consultant is ready to help." body="Fast response, no pressure, just clarity on your path to compliance." cta="Call 480-606-8602" href="tel:4806068602" hint-size="100%,520px"></dc-import>
+
+<dc-import name="SiteFooter" hint-size="100%,560px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { f: { first: "", last: "", email: "", phone: "", service: "Behavioral Health Consulting", comment: "" }, sent: false, err: false, errMsg: "", openFaq: 0 };
+
+  get contacts() {
+    return [
+      { label: "Email", value: "tony@davinciconsultingservices.com", href: "mailto:tony@davinciconsultingservices.com" },
+      { label: "Phone", value: "480-606-8602", href: "tel:4806068602" },
+      { label: "Office", value: "1141 East Glendale Avenue #1054, Phoenix, Arizona 85020", href: "#" }
+    ];
+  }
+  get serviceOptions() {
+    return ["Medicaid Credentialing", "Joint Commission Preparation", "Healthcare Compliance Training", "Risk Management Solutions", "Policies & Procedures Development", "State Licensure Support", "Leadership Development", "Operational Consulting", "Accreditation Support", "Strategic Growth Planning", "Behavioral Health Consulting"];
+  }
+  get faqs() {
+    const data = [
+      { q: "What services does Da Vinci Consulting Services offer?", a: "End-to-end behavioral health consulting: Medicaid credentialing, Joint Commission survey preparation, compliance and quality training, state Department of Health licensing, company integrity audits, risk management, policies and procedures, and leadership development." },
+      { q: "How do you help my organization prepare for Joint Commission accreditation?", a: "We run mock surveys and gap assessments, train your staff on the standards, review documentation, build your plan of correction, and stay with you through the survey and triennial cycle, so accreditation arrives without surprises." },
+      { q: "Do you work with organizations outside of Arizona?", a: "Yes. We're Phoenix-based and deeply versed in Arizona requirements, and we support behavioral health organizations across the country, every strategy is tailored to your state's standards." },
+      { q: "How do you improve the efficiency of my facility?", a: "We audit your billing, documentation, and workflows, align policies with regulatory standards, and streamline operations, removing redundancy so your team spends less time on paperwork and more on care." }
+    ];
+    return data.map((f, i) => ({ q: f.q, a: f.a, open: i === this.state.openFaq, sign: i === this.state.openFaq ? "–" : "+", toggle: () => this.setState(s => ({ openFaq: s.openFaq === i ? -1 : i })) }));
+  }
+  upd(k, v) { this.setState({ f: { ...this.state.f, [k]: v } }); }
+  renderVals() {
+    return {
+      contacts: this.contacts, serviceOptions: this.serviceOptions, faqs: this.faqs,
+      f: this.state.f, sent: this.state.sent, notSent: !this.state.sent, err: this.state.err, errMsg: this.state.errMsg,
+      setFirst: (e) => this.upd("first", e.target.value),
+      setLast: (e) => this.upd("last", e.target.value),
+      setEmail: (e) => this.upd("email", e.target.value),
+      setPhone: (e) => this.upd("phone", e.target.value),
+      setService: (e) => this.upd("service", e.target.value),
+      setComment: (e) => this.upd("comment", e.target.value),
+      submit: () => {
+        const f = this.state.f;
+        if (!f.first.trim()) return this.setState({ err: true, errMsg: "Please enter your first name." });
+        if (f.email.indexOf("@") < 1) return this.setState({ err: true, errMsg: "Please enter a valid email address." });
+        this.setState({ sent: true, err: false });
+      }
+    };
+  }
+  componentDidMount() {
+    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+    document.querySelectorAll("[data-reveal][data-reveal-delay]").forEach(el => { el.style.animationDelay = (el.getAttribute("data-reveal-delay") || 0) + "ms"; });
+  }
+}
+</script>
+</body>
+</html>

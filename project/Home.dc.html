@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Da Vinci Consulting Services, Behavioral Healthcare Compliance & Credentialing</title>
+<meta name="description" content="Da Vinci Consulting Services helps behavioral health organizations win at compliance, Medicaid credentialing, Joint Commission accreditation, and state licensing. 13+ years, 50+ facilities, 98% retention.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin:0; background:#F6F1E7; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+  a { color:inherit; }
+  ::selection { background:#B68B3C; color:#211C18; }
+  @keyframes dvDraw { to { stroke-dashoffset: 0; } }
+  @keyframes dvAmbient { 0%,100%{ transform: scale(1);} 50%{ transform: scale(1.04);} }
+  @keyframes dvRise { from { transform:translateY(24px); } to { transform:translateY(0); } }
+  [data-reveal]{ animation:dvRise .75s cubic-bezier(.22,1,.36,1) both; }
+  @media (max-width: 940px){
+    [data-desktop-nav]{ display:none !important; }
+    [data-mobile-toggle]{ display:inline-flex !important; }
+    [data-hero-geo]{ opacity:.5 !important; }
+    [data-arc]{ display:none !important; }
+  }
+  @media (min-width: 941px){
+    [data-mobile-toggle]{ display:none !important; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    [data-draw]{ stroke-dashoffset:0 !important; animation:none !important; }
+    [data-ambient]{ animation:none !important; }
+    [data-reveal]{ opacity:1 !important; animation:none !important; }
+  }
+  script[type="application/ld+json"]{ display:none; }
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Da Vinci Consulting Services","description":"Behavioral healthcare compliance, Medicaid credentialing, Joint Commission accreditation, and operational consulting.","telephone":"+14806068602","email":"tony@davinciconsultingservices.com","address":{"@type":"PostalAddress","streetAddress":"1141 East Glendale Avenue #1054","addressLocality":"Phoenix","addressRegion":"AZ","postalCode":"85020","addressCountry":"US"},"areaServed":"US","foundingDate":"2016"}
+</script>
+</helmet>
+
+<div style="font-family:'Inter',sans-serif;color:#3A342C;background:#F6F1E7;overflow-x:hidden;position:relative;">
+
+<!-- ============ HEADER ============ -->
+<header data-header style="position:fixed;top:0;left:0;right:0;z-index:60;transition:box-shadow .3s;background:#FFFFFF;border-bottom:1px solid #E3D9C6;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,56px);height:74px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+    <a href="Home.dc.html" style="display:flex;align-items:center;text-decoration:none;flex:none;">
+      <img src="assets/logo-davinci.png" alt="Da Vinci Consulting Services" style="height:42px;width:auto;display:block;"/>
+    </a>
+
+    <!-- desktop nav -->
+    <nav data-desktop-nav style="display:flex;align-items:center;gap:4px;font-size:15px;font-weight:500;">
+      <a href="Home.dc.html" style="text-decoration:none;color:#211C18;padding:9px 14px;border-radius:8px;">Home</a>
+      <span onMouseEnter="{{ openMega }}" style="position:relative;">
+        <a href="Services.dc.html" style="text-decoration:none;color:#211C18;padding:9px 14px;border-radius:8px;display:inline-flex;align-items:center;gap:6px;">Services<span style="font-size:10px;color:#876728;">▾</span></a>
+      </span>
+      <a href="About.dc.html" style="text-decoration:none;color:#211C18;padding:9px 14px;border-radius:8px;">About</a>
+      <a href="Blog.dc.html" style="text-decoration:none;color:#211C18;padding:9px 14px;border-radius:8px;">Blog</a>
+      <a href="Contact.dc.html" style="text-decoration:none;color:#211C18;padding:9px 14px;border-radius:8px;">Contact</a>
+    </nav>
+
+    <div data-desktop-nav style="display:flex;align-items:center;gap:14px;flex:none;">
+      <a href="tel:4806068602" style="text-decoration:none;color:#211C18;font-size:14px;font-weight:600;display:inline-flex;align-items:center;gap:7px;">
+        <span style="width:15px;height:15px;border:1.4px solid #876728;border-radius:50%;display:inline-block;position:relative;"></span>Call Now
+      </a>
+      <a href="Contact.dc.html" style="text-decoration:none;font-weight:600;font-size:14px;padding:12px 22px;border-radius:999px;background:#B68B3C;color:#211C18;transition:background .15s;" style-hover="background:#CDA14E;">Schedule a Consultation</a>
+    </div>
+
+    <button data-mobile-toggle onClick="{{ toggleMobile }}" aria-label="Menu" style="display:none;align-items:center;justify-content:center;width:42px;height:42px;background:transparent;border:1px solid #E3D9C6;border-radius:10px;cursor:pointer;flex-direction:column;gap:4px;">
+      <span style="width:18px;height:1.5px;background:#211C18;display:block;"></span>
+      <span style="width:18px;height:1.5px;background:#211C18;display:block;"></span>
+      <span style="width:18px;height:1.5px;background:#211C18;display:block;"></span>
+    </button>
+  </div>
+
+  <!-- MEGA MENU -->
+  <sc-if value="{{ megaOpen }}" hint-placeholder-val="{{ false }}">
+    <div onMouseLeave="{{ closeMega }}" style="position:absolute;top:74px;left:0;right:0;background:#FBF8F1;border-top:1px solid #E3D9C6;border-bottom:1px solid #E3D9C6;box-shadow:0 24px 48px rgba(33,28,24,.12);">
+      <div style="max-width:1200px;margin:0 auto;padding:28px clamp(20px,5vw,56px);display:grid;grid-template-columns:300px 1fr;gap:36px;align-items:stretch;">
+        <div style="background:#2C2620;border-radius:14px;padding:26px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;min-height:300px;">
+          <div data-ambient style="position:absolute;inset:0;background:repeating-linear-gradient(135deg,#3a332b 0 2px,transparent 2px 12px);opacity:.5;animation:dvAmbient 9s ease-in-out infinite;"></div>
+          <svg viewBox="0 0 120 120" style="position:absolute;top:-20px;right:-20px;width:140px;height:140px;opacity:.18;"><rect x="20" y="20" width="80" height="80" fill="none" stroke="#B68B3C" stroke-width="1"/><circle cx="60" cy="60" r="40" fill="none" stroke="#B68B3C" stroke-width="1"/></svg>
+          <div style="position:relative;">
+            <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:#CDA14E;margin:0 0 14px;">FULL-SERVICE SUPPORT</p>
+            <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:26px;line-height:1.08;color:#FBF8F1;margin:0 0 12px;">Every regulation, one expert team.</h3>
+            <p style="font-size:13.5px;line-height:1.55;color:#C9C0B0;margin:0 0 18px;">Compliance, credentialing, and leadership in one place.</p>
+            <a href="Services.dc.html" style="text-decoration:none;color:#CDA14E;font-weight:600;font-size:14px;">Explore all services →</a>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;">
+          <sc-for list="{{ services }}" as="svc" hint-placeholder-count="8">
+            <a href="{{ svc.href }}" style="text-decoration:none;display:flex;gap:12px;align-items:flex-start;padding:13px;border-radius:10px;transition:background .15s;" style-hover="background:#F2EADA;">
+              <span style="flex:none;width:34px;height:34px;border-radius:8px;background:#F6F1E7;border:1px solid #E3D9C6;display:flex;align-items:center;justify-content:center;">
+                <span style="width:11px;height:11px;border:1.4px solid #B68B3C;transform:rotate(45deg);display:block;"></span>
+              </span>
+              <span>
+                <span style="display:block;font-weight:600;font-size:14.5px;color:#211C18;line-height:1.2;">{{ svc.name }}</span>
+                <span style="display:block;font-size:12.5px;color:#6B6155;margin-top:3px;">{{ svc.desc }}</span>
+              </span>
+            </a>
+          </sc-for>
+          <a href="Services.dc.html" style="text-decoration:none;display:flex;align-items:center;gap:10px;padding:13px;border-radius:10px;border:1px dashed #D8CDB6;color:#876728;font-weight:600;font-size:14px;">→ View all services</a>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</header>
+
+<!-- MOBILE OVERLAY -->
+<sc-if value="{{ mobileNav }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:0;z-index:70;background:#211C18;color:#FBF8F1;padding:24px clamp(20px,6vw,40px);display:flex;flex-direction:column;overflow-y:auto;">
+    <div style="display:flex;align-items:center;justify-content:space-between;height:50px;">
+      <span style="font-family:'Fraunces',serif;font-weight:600;font-size:18px;">Da Vinci</span>
+      <button onClick="{{ toggleMobile }}" aria-label="Close" style="width:42px;height:42px;background:transparent;border:1px solid #4a4239;border-radius:10px;color:#FBF8F1;font-size:22px;cursor:pointer;line-height:1;">×</button>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:4px;margin-top:32px;font-family:'Fraunces',serif;font-size:30px;font-weight:500;">
+      <a href="Home.dc.html" style="text-decoration:none;color:#FBF8F1;padding:12px 0;border-bottom:1px solid #332d26;">Home</a>
+      <a href="Services.dc.html" style="text-decoration:none;color:#FBF8F1;padding:12px 0;border-bottom:1px solid #332d26;">Services</a>
+      <a href="About.dc.html" style="text-decoration:none;color:#FBF8F1;padding:12px 0;border-bottom:1px solid #332d26;">About</a>
+      <a href="Blog.dc.html" style="text-decoration:none;color:#FBF8F1;padding:12px 0;border-bottom:1px solid #332d26;">Blog</a>
+      <a href="Contact.dc.html" style="text-decoration:none;color:#FBF8F1;padding:12px 0;border-bottom:1px solid #332d26;">Contact</a>
+    </nav>
+    <a href="Contact.dc.html" style="margin-top:28px;text-align:center;text-decoration:none;font-family:'Inter';font-weight:600;font-size:16px;padding:16px;border-radius:999px;background:#B68B3C;color:#211C18;">Schedule a Consultation</a>
+    <a href="tel:4806068602" style="margin-top:14px;text-align:center;text-decoration:none;color:#C9C0B0;font-size:14px;font-family:'IBM Plex Mono',monospace;letter-spacing:.08em;">CALL · 480-606-8602</a>
+  </div>
+</sc-if>
+
+<!-- ============ HERO ============ -->
+<section data-screen-label="Hero" style="position:relative;margin-top:74px;min-height:clamp(560px,80vh,740px);display:flex;align-items:center;overflow:hidden;">
+  <img src="assets/hero-team.png" alt="Behavioral health consulting team walking through a modern facility" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;"/>
+  <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(24,20,16,.90) 0%,rgba(24,20,16,.66) 42%,rgba(24,20,16,.24) 70%,rgba(24,20,16,.02) 100%);"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,16,12,.62) 0%,rgba(20,16,12,.12) 28%,transparent 52%);"></div>
+  <div style="position:relative;z-index:1;max-width:1200px;margin:0 auto;width:100%;padding:clamp(56px,7vw,104px) clamp(20px,5vw,56px);">
+    <div style="max-width:640px;">
+      <p data-reveal style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#E6C98A;margin:0 0 24px;display:flex;align-items:center;gap:14px;"><span style="width:34px;height:1px;background:#CDA14E;display:inline-block;"></span>Behavioral Healthcare Consulting</p>
+      <h1 data-reveal data-reveal-delay="80" style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(42px,6.2vw,80px);line-height:1.02;letter-spacing:-.015em;color:#FBF8F1;margin:0 0 24px;text-wrap:balance;">Helping behavioral health operate with <span style="color:#CDA14E;font-style:italic;">confidence.</span></h1>
+      <p data-reveal data-reveal-delay="160" style="font-size:clamp(17px,1.5vw,20px);line-height:1.6;color:#E7DECB;margin:0 0 38px;max-width:520px;">Compliance, credentialing, and operational expertise, so a stretched team can hand the regulatory weight to one expert partner.</p>
+      <div data-reveal data-reveal-delay="240" style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;">
+        <a href="Contact.dc.html" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:16px;padding:17px 32px;border-radius:999px;background:#B68B3C;color:#211C18;transition:background .15s;" style-hover="background:#CDA14E;">Schedule Your Consultation <span style="font-size:15px;">→</span></a>
+        <a href="Services.dc.html" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:16px;padding:17px 30px;border-radius:999px;background:rgba(255,255,255,.08);color:#FBF8F1;border:1px solid rgba(251,248,241,.5);transition:background .15s;" style-hover="background:rgba(255,255,255,.18);">Explore Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST STRIP ============ -->
+<section style="border-top:1px solid #E6DBC8;border-bottom:1px solid #E6DBC8;background:#EDE3D0;">
+  <div style="max-width:1200px;margin:0 auto;padding:26px clamp(20px,5vw,56px);display:flex;flex-wrap:wrap;align-items:center;gap:24px 48px;justify-content:space-between;">
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#6B6155;margin:0;flex:none;">Measured by the same<br>standards you are.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center;">
+      <sc-for list="{{ partners }}" as="p" hint-placeholder-count="5">
+        <span style="font-family:'Fraunces',serif;font-weight:500;font-size:clamp(15px,1.6vw,18px);color:#6B6155;opacity:.85;letter-spacing:-.01em;">{{ p }}</span>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTRO / EXCELLENCE ============ -->
+<section style="padding:clamp(72px,10vw,140px) clamp(20px,5vw,56px);">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(44px,6vw,84px);align-items:center;">
+    <div data-reveal>
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#6B6155;margin:0 0 18px;display:flex;align-items:center;gap:12px;"><span style="width:28px;height:1px;background:#B68B3C;display:inline-block;"></span>What we do</p>
+      <h2 style="font-family:'Fraunces',serif;font-weight:550;font-size:clamp(28px,4vw,44px);line-height:1.08;letter-spacing:-.01em;color:#211C18;margin:0 0 22px;">Empowering behavioral healthcare <span style="color:#876728;">excellence.</span></h2>
+      <p style="font-size:clamp(16px,1.2vw,17px);line-height:1.65;color:#3A342C;margin:0 0 18px;">At Da Vinci Consulting Services, we help behavioral health organizations thrive by delivering clear, results-driven solutions.</p>
+      <p style="font-size:clamp(16px,1.2vw,17px);line-height:1.65;color:#3A342C;margin:0 0 32px;">With over <strong style="color:#211C18;">13 years of experience</strong>, we've supported facilities through accreditation, growth, and regulatory success. Every solution strengthens care delivery, enhances compliance, and drives sustainable performance.</p>
+      <div style="display:flex;flex-direction:column;gap:2px;">
+        <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="4">
+          <div style="display:flex;gap:18px;padding:20px 4px;border-bottom:1px solid #E3D9C6;align-items:flex-start;">
+            <span style="font-family:'Fraunces',serif;font-weight:600;font-size:20px;color:#B68B3C;flex:none;width:30px;">{{ p.num }}</span>
+            <span>
+              <span style="display:block;font-weight:600;font-size:17px;color:#211C18;margin-bottom:4px;">{{ p.title }}</span>
+              <span style="display:block;font-size:14.5px;line-height:1.5;color:#6B6155;">{{ p.desc }}</span>
+            </span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div data-reveal data-reveal-delay="120" style="position:relative;">
+      <div style="position:relative;border-radius:18px;overflow:hidden;border:1px solid #E3D9C6;aspect-ratio:4/5;">
+        <img src="assets/excellence.png" alt="Behavioral health leadership team mapping operational workflows on a whiteboard" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      </div>
+      <span style="position:absolute;top:-9px;left:-9px;width:20px;height:20px;border-left:1.5px solid #B68B3C;border-top:1.5px solid #B68B3C;"></span>
+      <span style="position:absolute;bottom:-9px;right:-9px;width:20px;height:20px;border-right:1.5px solid #B68B3C;border-bottom:1.5px solid #B68B3C;"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURED SERVICES ============ -->
+<section style="padding:clamp(72px,9vw,128px) clamp(20px,5vw,56px);background:#EDE3D0;border-top:1px solid #E6DBC8;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div data-reveal style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:52px;">
+      <div style="max-width:620px;">
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#6B6155;margin:0 0 16px;display:flex;align-items:center;gap:12px;"><span style="width:28px;height:1px;background:#B68B3C;display:inline-block;"></span>Core services</p>
+        <h2 style="font-family:'Fraunces',serif;font-weight:550;font-size:clamp(28px,4vw,42px);line-height:1.1;letter-spacing:-.005em;color:#211C18;margin:0 0 12px;">Certified. Compliant. Trusted.</h2>
+        <p style="font-size:17px;line-height:1.6;color:#6B6155;margin:0;">We work to the same standards your facility is measured by.</p>
+      </div>
+      <a href="Services.dc.html" style="text-decoration:none;color:#876728;font-weight:600;font-size:15px;white-space:nowrap;">View all services →</a>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;">
+      <sc-for list="{{ featured }}" as="f" hint-placeholder-count="4">
+        <a data-reveal href="{{ f.href }}" style="text-decoration:none;position:relative;background:#FFFFFF;border:1px solid #EBE2D0;border-radius:16px;padding:30px 26px 28px;display:flex;flex-direction:column;box-shadow:0 1px 3px rgba(33,28,24,.05);transition:transform .18s,box-shadow .18s,border-color .18s;" style-hover="transform:translateY(-5px);box-shadow:0 18px 42px rgba(33,28,24,.13);border-color:#B68B3C;">
+          <span style="position:absolute;top:10px;left:10px;width:9px;height:9px;border-left:1px solid #B68B3C;border-top:1px solid #B68B3C;"></span>
+          <span style="position:absolute;top:10px;right:10px;width:9px;height:9px;border-right:1px solid #B68B3C;border-top:1px solid #B68B3C;"></span>
+          <span style="width:46px;height:46px;border-radius:10px;background:#FBF8F1;border:1px solid #E3D9C6;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">{{ f.icon }}</span>
+          <span style="display:block;font-family:'Fraunces',serif;font-weight:600;font-size:20px;color:#211C18;line-height:1.2;margin-bottom:9px;">{{ f.name }}</span>
+          <span style="display:block;font-size:14.5px;line-height:1.55;color:#6B6155;margin-bottom:18px;flex:1;">{{ f.blurb }}</span>
+          <span style="color:#876728;font-weight:600;font-size:14px;">{{ f.cta }} →</span>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BALANCE DIAGRAM ============ -->
+<section style="padding:clamp(64px,9vw,120px) clamp(20px,5vw,56px);">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(36px,6vw,72px);align-items:center;">
+    <div data-reveal>
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#6B6155;margin:0 0 18px;display:flex;align-items:center;gap:12px;"><span style="width:28px;height:1px;background:#B68B3C;display:inline-block;"></span>Compliance in balance</p>
+      <h2 style="font-family:'Fraunces',serif;font-weight:550;font-size:clamp(28px,4vw,42px);line-height:1.1;letter-spacing:-.005em;color:#211C18;margin:0 0 20px;">Customized strategies for behavioral health success.</h2>
+      <p style="font-size:17px;line-height:1.65;color:#3A342C;margin:0 0 16px;">From Medicaid credentialing to compliance audits, Joint Commission preparation, and leadership consulting, we help facilities operate with clarity.</p>
+      <p style="font-size:17px;line-height:1.65;color:#3A342C;margin:0 0 30px;">Every strategy is tailored to your goals, meeting licensing requirements, boosting efficiency, or preparing for accreditation. Let's elevate your organization together.</p>
+      <a href="Contact.dc.html" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:16px;padding:15px 28px;border-radius:999px;background:transparent;color:#211C18;border:1px solid #211C18;transition:background .15s,color .15s;" style-hover="background:#211C18;color:#FBF8F1;">Request a Strategy Call →</a>
+    </div>
+    <div data-reveal data-reveal-delay="120" style="display:flex;justify-content:center;">
+      <svg viewBox="0 0 440 360" style="width:100%;max-width:440px;height:auto;">
+        <circle cx="165" cy="170" r="125" fill="#1F3D32" fill-opacity=".1" stroke="#1F3D32" stroke-width="1.3" stroke-opacity=".5"/>
+        <circle cx="275" cy="170" r="125" fill="#B68B3C" fill-opacity=".14" stroke="#B68B3C" stroke-width="1.3" stroke-opacity=".7"/>
+        <text x="100" y="120" font-family="IBM Plex Mono,monospace" font-size="13" letter-spacing="1.5" fill="#1F3D32">REGULATION</text>
+        <text x="300" y="120" font-family="IBM Plex Mono,monospace" font-size="13" letter-spacing="1.5" fill="#876728">CARE</text>
+        <text x="220" y="168" text-anchor="middle" font-family="Fraunces,serif" font-size="16" font-weight="600" fill="#211C18">Sustainable</text>
+        <text x="220" y="190" text-anchor="middle" font-family="Fraunces,serif" font-size="16" font-weight="600" fill="#211C18">Compliance</text>
+        <text x="220" y="338" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="11" letter-spacing="2" fill="#6B6155">REGULATION ∩ CARE</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS TIMELINE ============ -->
+<section style="padding:clamp(72px,9vw,128px) clamp(20px,5vw,56px);background:#EDE3D0;border-top:1px solid #E6DBC8;border-bottom:1px solid #E6DBC8;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div data-reveal style="max-width:620px;margin-bottom:54px;">
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#6B6155;margin:0 0 16px;display:flex;align-items:center;gap:12px;"><span style="width:28px;height:1px;background:#B68B3C;display:inline-block;"></span>How we work</p>
+      <h2 style="font-family:'Fraunces',serif;font-weight:550;font-size:clamp(28px,4vw,42px);line-height:1.1;color:#211C18;margin:0;">A measured path from chaos to compliance.</h2>
+    </div>
+    <div style="position:relative;">
+      <svg data-arc viewBox="0 0 1200 80" preserveAspectRatio="none" style="position:absolute;top:34px;left:0;width:100%;height:80px;pointer-events:none;">
+        <path data-draw d="M 90 60 C 350 0, 850 0, 1110 60" fill="none" stroke="#B68B3C" stroke-width="1.4" stroke-dasharray="1" pathLength="1" style="stroke-dashoffset:1;" stroke-opacity=".6"/>
+      </svg>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:24px;position:relative;">
+        <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
+          <div data-reveal data-reveal-delay="{{ s.delay }}" style="text-align:center;">
+            <div style="width:74px;height:74px;margin:0 auto 22px;border-radius:50%;background:#FFFFFF;border:1px solid #EBE2D0;box-shadow:0 6px 18px rgba(33,28,24,.07);display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:600;font-size:25px;color:#876728;position:relative;z-index:1;">{{ s.num }}</div>
+            <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:21px;color:#211C18;margin:0 0 8px;">{{ s.title }}</h3>
+            <p style="font-size:14.5px;line-height:1.55;color:#6B6155;margin:0;">{{ s.desc }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STAT BAND ============ -->
+<section style="background:#EDE3D0;color:#3A342C;padding:clamp(64px,8vw,116px) clamp(20px,5vw,56px);position:relative;overflow:hidden;border-top:1px solid #E0D4BC;border-bottom:1px solid #E0D4BC;">
+  <svg viewBox="0 0 300 300" style="position:absolute;top:-60px;left:-40px;width:340px;height:340px;opacity:.07;"><rect x="50" y="50" width="200" height="200" fill="none" stroke="#B68B3C" stroke-width="1"/><circle cx="150" cy="150" r="100" fill="none" stroke="#B68B3C" stroke-width="1"/></svg>
+  <div style="max-width:1200px;margin:0 auto;position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:40px 28px;">
+    <div data-reveal style="grid-column:1/-1;max-width:640px;margin-bottom:8px;">
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:#876728;margin:0 0 14px;">Proof, not promises</p>
+      <h2 style="font-family:'Fraunces',serif;font-weight:550;font-size:clamp(26px,3.6vw,38px);line-height:1.12;color:#211C18;margin:0;">Trusted by 50+ behavioral health facilities.</h2>
+    </div>
+    <sc-for list="{{ stats }}" as="st" hint-placeholder-count="4">
+      <div data-reveal data-reveal-delay="{{ st.delay }}">
+        <div style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(42px,5vw,60px);line-height:1;color:#876728;letter-spacing:-.01em;"><span data-count="{{ st.count }}" data-prefix="{{ st.prefix }}" data-suffix="{{ st.suffix }}">{{ st.display }}</span></div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:#6B6155;margin-top:12px;">{{ st.label }}</div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<!-- ============ GET EXPERT HELP (LEAD FORM) ============ -->
+<section style="padding:clamp(72px,9vw,128px) clamp(20px,5vw,56px);">
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(40px,6vw,72px);align-items:center;">
+    <div data-reveal>
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#6B6155;margin:0 0 18px;display:flex;align-items:center;gap:12px;"><span style="width:28px;height:1px;background:#B68B3C;display:inline-block;"></span>Get expert help</p>
+      <h2 style="font-family:'Fraunces',serif;font-weight:550;font-size:clamp(28px,3.8vw,42px);line-height:1.1;letter-spacing:-.005em;color:#211C18;margin:0 0 18px;">Get expert help with compliance or credentialing.</h2>
+      <p style="font-size:17px;line-height:1.65;color:#3A342C;margin:0 0 28px;max-width:440px;">Fast response from a senior consultant. No pressure, just clarity on your path forward.</p>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <a href="tel:4806068602" style="text-decoration:none;display:flex;align-items:center;gap:14px;">
+          <span style="flex:none;width:44px;height:44px;border-radius:11px;background:#FFFFFF;border:1px solid #EBE2D0;box-shadow:0 4px 14px rgba(33,28,24,.06);display:flex;align-items:center;justify-content:center;"><span style="width:13px;height:13px;border:1.6px solid #B68B3C;border-radius:50%;display:block;"></span></span>
+          <span><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#A8997F;">Call</span><span style="display:block;font-size:16px;font-weight:600;color:#211C18;">480-606-8602</span></span>
+        </a>
+        <a href="mailto:tony@davinciconsultingservices.com" style="text-decoration:none;display:flex;align-items:center;gap:14px;">
+          <span style="flex:none;width:44px;height:44px;border-radius:11px;background:#FFFFFF;border:1px solid #EBE2D0;box-shadow:0 4px 14px rgba(33,28,24,.06);display:flex;align-items:center;justify-content:center;"><span style="width:13px;height:13px;border:1.6px solid #B68B3C;transform:rotate(45deg);display:block;"></span></span>
+          <span><span style="display:block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#A8997F;">Email</span><span style="display:block;font-size:15px;font-weight:600;color:#211C18;word-break:break-all;">tony@davinciconsultingservices.com</span></span>
+        </a>
+      </div>
+      <span style="display:inline-block;margin-top:26px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:#876728;border:1px solid #D8CDB6;border-radius:999px;padding:8px 16px;">EST. 2016 · PHOENIX, AZ</span>
+    </div>
+    <div data-reveal data-reveal-delay="100">
+      <sc-if value="{{ leadSent }}" hint-placeholder-val="{{ false }}">
+        <div style="text-align:center;background:#FFFFFF;border:1px solid #EBE2D0;border-radius:18px;padding:56px 32px;box-shadow:0 12px 36px rgba(33,28,24,.08);">
+          <div style="width:54px;height:54px;margin:0 auto 20px;border-radius:50%;border:1.5px solid #1F8A5B;display:flex;align-items:center;justify-content:center;"><span style="color:#1F8A5B;font-size:24px;">✓</span></div>
+          <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:25px;color:#211C18;margin:0 0 10px;">Thank you, message received.</h3>
+          <p style="font-size:15px;line-height:1.6;color:#6B6155;margin:0;">A senior consultant will reach out shortly.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ leadNotSent }}" hint-placeholder-val="{{ true }}">
+        <div style="background:#FFFFFF;border:1px solid #EBE2D0;border-radius:18px;padding:clamp(28px,4vw,40px);box-shadow:0 12px 36px rgba(33,28,24,.08);">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:16px;">
+            <label style="display:block;"><span style="display:block;font-size:13px;font-weight:600;color:#3A342C;margin-bottom:7px;">Name</span><input value="{{ lead.name }}" onInput="{{ setLeadName }}" placeholder="Jane Doe" style="width:100%;font-family:'Inter';font-size:15px;padding:13px 15px;border-radius:10px;border:1px solid #E3D9C6;background:#FBF8F1;color:#211C18;outline:none;"/></label>
+            <label style="display:block;"><span style="display:block;font-size:13px;font-weight:600;color:#3A342C;margin-bottom:7px;">Facility name</span><input value="{{ lead.facility }}" onInput="{{ setLeadFacility }}" placeholder="Optional" style="width:100%;font-family:'Inter';font-size:15px;padding:13px 15px;border-radius:10px;border:1px solid #E3D9C6;background:#FBF8F1;color:#211C18;outline:none;"/></label>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:16px;">
+            <label style="display:block;"><span style="display:block;font-size:13px;font-weight:600;color:#3A342C;margin-bottom:7px;">Email</span><input value="{{ lead.email }}" onInput="{{ setLeadEmail }}" placeholder="jane@facility.org" style="width:100%;font-family:'Inter';font-size:15px;padding:13px 15px;border-radius:10px;border:1px solid #E3D9C6;background:#FBF8F1;color:#211C18;outline:none;"/></label>
+            <label style="display:block;"><span style="display:block;font-size:13px;font-weight:600;color:#3A342C;margin-bottom:7px;">Phone</span><input value="{{ lead.phone }}" onInput="{{ setLeadPhone }}" placeholder="480-606-8602" style="width:100%;font-family:'Inter';font-size:15px;padding:13px 15px;border-radius:10px;border:1px solid #E3D9C6;background:#FBF8F1;color:#211C18;outline:none;"/></label>
+          </div>
+          <label style="display:block;margin-bottom:8px;"><span style="display:block;font-size:13px;font-weight:600;color:#3A342C;margin-bottom:7px;">What do you need help with?</span><textarea value="{{ lead.msg }}" onInput="{{ setLeadMsg }}" rows="3" placeholder="Credentialing, accreditation, licensing, a compliance audit…" style="width:100%;font-family:'Inter';font-size:15px;padding:13px 15px;border-radius:10px;border:1px solid #E3D9C6;background:#FBF8F1;color:#211C18;outline:none;resize:vertical;"></textarea></label>
+          <sc-if value="{{ leadErr }}" hint-placeholder-val="{{ false }}"><p style="font-size:13px;color:#B4452F;margin:4px 0 0;">{{ leadErrMsg }}</p></sc-if>
+          <button onClick="{{ submitLead }}" style="margin-top:16px;width:100%;font-family:'Inter';font-weight:600;font-size:16px;padding:16px;border-radius:10px;border:none;background:#B68B3C;color:#211C18;cursor:pointer;transition:background .15s;" style-hover="background:#CDA14E;">Request a Callback</button>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIAL FEATURE ============ -->
+<section style="padding:clamp(64px,9vw,120px) clamp(20px,5vw,56px);">
+  <div data-reveal style="max-width:920px;margin:0 auto;text-align:center;">
+    <span style="font-family:'Fraunces',serif;font-size:72px;line-height:.5;color:#B68B3C;display:block;margin-bottom:8px;">"</span>
+    <p style="font-family:'Fraunces',serif;font-weight:400;font-style:italic;font-size:clamp(22px,2.8vw,32px);line-height:1.4;color:#211C18;margin:0 0 32px;letter-spacing:-.01em;">DaVinci Consulting staff were professional, knowledgeable and proficient in evaluating my counseling program. They had a fresh perspective and gave me tons of information and guidance. It's great to consult with others in the field in this rapidly changing climate to make sure everything is correct, in compliance and moving smoothly.</p>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:3px;">
+      <span style="font-weight:600;font-size:16px;color:#211C18;">Katherine Nisbet</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#6B6155;">CHIEF CLINICAL EXECUTIVE</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOUNDER TEASER ============ -->
+<section style="padding:clamp(72px,9vw,128px) clamp(20px,5vw,56px);background:#EDE3D0;border-top:1px solid #E6DBC8;">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(40px,6vw,72px);align-items:center;">
+    <div data-reveal style="position:relative;">
+      <div style="position:relative;border-radius:16px;overflow:hidden;border:1px solid #E3D9C6;aspect-ratio:4/3;">
+        <img src="assets/team-experts.png" alt="Da Vinci consultants reviewing compliance documentation together" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      </div>
+      <span style="position:absolute;top:-8px;left:-8px;width:18px;height:18px;border-left:1.5px solid #B68B3C;border-top:1.5px solid #B68B3C;"></span>
+      <span style="position:absolute;bottom:-8px;right:-8px;width:18px;height:18px;border-right:1.5px solid #B68B3C;border-bottom:1.5px solid #B68B3C;"></span>
+    </div>
+    <div data-reveal data-reveal-delay="120">
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#6B6155;margin:0 0 18px;display:flex;align-items:center;gap:12px;"><span style="width:28px;height:1px;background:#B68B3C;display:inline-block;"></span>The team</p>
+      <h2 style="font-family:'Fraunces',serif;font-weight:550;font-size:clamp(26px,3.6vw,40px);line-height:1.12;color:#211C18;margin:0 0 20px;">Meet the experts behind behavioral healthcare success.</h2>
+      <p style="font-size:17px;line-height:1.65;color:#3A342C;margin:0 0 28px;">Led by founder Tony Renello, MS, LISAC, Vice President of the Arizona Board for Certification of Addiction Counselors, our team brings deep knowledge of compliance, leadership, and growth strategies across the behavioral healthcare landscape.</p>
+      <a href="About.dc.html" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:16px;padding:15px 28px;border-radius:999px;background:#B68B3C;color:#211C18;transition:background .15s;" style-hover="background:#CDA14E;">Meet the Da Vinci Team →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEAD FORM ============ -->
+<section style="padding:clamp(64px,9vw,120px) clamp(20px,5vw,56px);background:#EDE3D0;border-top:1px solid #E6DBC8;border-bottom:1px solid #E6DBC8;">
+  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(36px,6vw,64px);align-items:start;">
+    <div data-reveal>
+      <span style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#876728;border:1px solid #D8CDB6;border-radius:999px;padding:7px 14px;margin-bottom:22px;">Est. 2016</span>
+      <h2 style="font-family:'Fraunces',serif;font-weight:550;font-size:clamp(28px,4vw,42px);line-height:1.1;color:#211C18;margin:0 0 16px;">Get expert help with compliance or credentialing.</h2>
+      <p style="font-size:17px;line-height:1.6;color:#6B6155;margin:0 0 28px;">Fast response from a senior consultant. No pressure, just clarity.</p>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <a href="tel:4806068602" style="text-decoration:none;display:flex;align-items:center;gap:12px;color:#211C18;font-size:15px;"><span style="width:36px;height:36px;border-radius:9px;background:#F6F1E7;border:1px solid #D8CDB6;display:inline-flex;align-items:center;justify-content:center;"><span style="width:11px;height:11px;border:1.5px solid #876728;border-radius:50%;display:block;"></span></span><span style="font-weight:600;">480-606-8602</span></a>
+        <a href="mailto:tony@davinciconsultingservices.com" style="text-decoration:none;display:flex;align-items:center;gap:12px;color:#211C18;font-size:15px;"><span style="width:36px;height:36px;border-radius:9px;background:#F6F1E7;border:1px solid #D8CDB6;display:inline-flex;align-items:center;justify-content:center;"><span style="width:11px;height:11px;border:1.5px solid #876728;transform:rotate(45deg);display:block;"></span></span><span style="font-weight:600;word-break:break-all;">tony@davinciconsultingservices.com</span></a>
+      </div>
+    </div>
+    <div data-reveal data-reveal-delay="100">
+      <sc-if value="{{ leadSent }}" hint-placeholder-val="{{ false }}">
+        <div style="text-align:center;background:#FBF8F1;border:1px solid #E3D9C6;border-radius:16px;padding:48px 32px;">
+          <div style="width:52px;height:52px;margin:0 auto 18px;border-radius:50%;border:1.5px solid #1F8A5B;display:flex;align-items:center;justify-content:center;"><span style="color:#1F8A5B;font-size:22px;">✓</span></div>
+          <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:24px;color:#211C18;margin:0 0 8px;">Thank you, we'll be in touch.</h3>
+          <p style="font-size:15px;color:#6B6155;margin:0;">A senior consultant will reach out shortly.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ leadNotSent }}" hint-placeholder-val="{{ true }}">
+        <div style="background:#FBF8F1;border:1px solid #E3D9C6;border-radius:16px;padding:clamp(26px,4vw,38px);">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:14px;">
+            <label style="display:block;"><span style="display:block;font-size:13px;font-weight:600;color:#3A342C;margin-bottom:6px;">Name</span><input value="{{ lead.name }}" onInput="{{ setLeadName }}" style="width:100%;font-family:'Inter';font-size:15px;padding:12px 14px;border-radius:10px;border:1px solid #E3D9C6;background:#FFF;color:#211C18;outline:none;"/></label>
+            <label style="display:block;"><span style="display:block;font-size:13px;font-weight:600;color:#3A342C;margin-bottom:6px;">Email</span><input value="{{ lead.email }}" onInput="{{ setLeadEmail }}" style="width:100%;font-family:'Inter';font-size:15px;padding:12px 14px;border-radius:10px;border:1px solid #E3D9C6;background:#FFF;color:#211C18;outline:none;"/></label>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:14px;">
+            <label style="display:block;"><span style="display:block;font-size:13px;font-weight:600;color:#3A342C;margin-bottom:6px;">Phone</span><input value="{{ lead.phone }}" onInput="{{ setLeadPhone }}" style="width:100%;font-family:'Inter';font-size:15px;padding:12px 14px;border-radius:10px;border:1px solid #E3D9C6;background:#FFF;color:#211C18;outline:none;"/></label>
+            <label style="display:block;"><span style="display:block;font-size:13px;font-weight:600;color:#3A342C;margin-bottom:6px;">Facility name <span style="color:#A8997F;font-weight:400;">(optional)</span></span><input value="{{ lead.facility }}" onInput="{{ setLeadFacility }}" style="width:100%;font-family:'Inter';font-size:15px;padding:12px 14px;border-radius:10px;border:1px solid #E3D9C6;background:#FFF;color:#211C18;outline:none;"/></label>
+          </div>
+          <label style="display:block;margin-bottom:14px;"><span style="display:block;font-size:13px;font-weight:600;color:#3A342C;margin-bottom:6px;">What do you need help with?</span>
+            <select value="{{ lead.need }}" onChange="{{ setLeadNeed }}" style="width:100%;font-family:'Inter';font-size:15px;padding:12px 14px;border-radius:10px;border:1px solid #E3D9C6;background:#FFF;color:#211C18;outline:none;appearance:none;cursor:pointer;">
+              <sc-for list="{{ leadOptions }}" as="o" hint-placeholder-count="9">
+                <option value="{{ o }}">{{ o }}</option>
+              </sc-for>
+            </select>
+          </label>
+          <label style="display:block;margin-bottom:8px;"><span style="display:block;font-size:13px;font-weight:600;color:#3A342C;margin-bottom:6px;">Message</span><textarea value="{{ lead.msg }}" onInput="{{ setLeadMsg }}" rows="3" placeholder="Briefly, what's going on?" style="width:100%;font-family:'Inter';font-size:15px;padding:12px 14px;border-radius:10px;border:1px solid #E3D9C6;background:#FFF;color:#211C18;outline:none;resize:vertical;"></textarea></label>
+          <sc-if value="{{ leadErr }}" hint-placeholder-val="{{ false }}"><p style="font-size:13px;color:#B4452F;margin:4px 0 0;">{{ leadErrMsg }}</p></sc-if>
+          <button onClick="{{ submitLead }}" style="margin-top:14px;width:100%;font-family:'Inter';font-weight:600;font-size:16px;padding:15px;border-radius:10px;border:none;background:#B68B3C;color:#211C18;cursor:pointer;transition:background .15s;" style-hover="background:#CDA14E;">Get Expert Help</button>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section style="padding:clamp(64px,9vw,120px) clamp(20px,5vw,56px);">
+  <div style="max-width:880px;margin:0 auto;">
+    <div data-reveal style="text-align:center;margin-bottom:48px;">
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#6B6155;margin:0 0 16px;">Frequently asked questions</p>
+      <h2 style="font-family:'Fraunces',serif;font-weight:550;font-size:clamp(28px,4vw,42px);line-height:1.1;color:#211C18;margin:0;">Answers, before you ask.</h2>
+    </div>
+    <div data-reveal style="border-top:1px solid #E3D9C6;">
+      <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="4">
+        <div style="border-bottom:1px solid #E3D9C6;">
+          <button onClick="{{ f.toggle }}" style="width:100%;background:transparent;border:none;cursor:pointer;text-align:left;padding:24px 0;display:flex;align-items:center;justify-content:space-between;gap:20px;font-family:'Fraunces',serif;font-weight:500;font-size:clamp(18px,2.2vw,22px);color:#211C18;">
+            {{ f.q }}
+            <span style="flex:none;width:26px;height:26px;border:1px solid #B68B3C;border-radius:50%;color:#876728;font-size:18px;display:flex;align-items:center;justify-content:center;line-height:1;">{{ f.sign }}</span>
+          </button>
+          <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:0;padding:0 0 26px;font-size:16px;line-height:1.65;color:#6B6155;max-width:680px;">{{ f.a }}</p>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMAGE BANNER ============ -->
+<dc-import name="ImageBanner" img="assets/boardroom.png" eyebrow="Your next step" heading="Hand the regulatory weight to one expert team." body="From credentialing to accreditation, we carry the complexity so your team can focus on care." cta="Schedule a Consultation" href="Contact.dc.html" hint-size="100%,520px"></dc-import>
+
+<!-- ============ CTA BAND ============ -->
+<section style="padding:clamp(20px,4vw,40px) clamp(20px,5vw,56px);">
+  <div data-reveal style="max-width:1200px;margin:0 auto;border-radius:20px;background:linear-gradient(120deg,#B68B3C 0%,#876728 100%);padding:clamp(48px,7vw,88px) clamp(28px,5vw,72px);position:relative;overflow:hidden;text-align:center;">
+    <svg viewBox="0 0 300 300" style="position:absolute;bottom:-80px;right:-40px;width:300px;height:300px;opacity:.14;"><rect x="50" y="50" width="200" height="200" fill="none" stroke="#FBF8F1" stroke-width="1.5"/><circle cx="150" cy="150" r="100" fill="none" stroke="#FBF8F1" stroke-width="1.5"/></svg>
+    <div style="position:relative;max-width:680px;margin:0 auto;">
+      <h2 style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(28px,4vw,44px);line-height:1.1;color:#FBF8F1;margin:0 0 18px;">Let's build a stronger, compliant future together.</h2>
+      <p style="font-size:17px;line-height:1.6;color:#F6F1E7;opacity:.92;margin:0 0 32px;">Fast response from a senior consultant. No pressure, just clarity.</p>
+      <a href="Contact.dc.html" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:16px;padding:17px 34px;border-radius:999px;background:#211C18;color:#FBF8F1;transition:background .15s;" style-hover="background:#2C2620;">Schedule a Consultation →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER ============ -->
+<section style="padding:clamp(48px,7vw,88px) clamp(20px,5vw,56px) clamp(56px,8vw,96px);">
+  <div data-reveal style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px 48px;align-items:center;">
+    <div>
+      <h3 style="font-family:'Fraunces',serif;font-weight:550;font-size:clamp(22px,2.8vw,30px);line-height:1.15;color:#211C18;margin:0 0 8px;">Don't miss the latest industry updates.</h3>
+      <p style="font-size:15px;line-height:1.55;color:#6B6155;margin:0;">Trends, tips, and regulatory insight for behavioral health leaders.</p>
+    </div>
+    <div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <input type="email" placeholder="Your email" value="{{ email }}" onInput="{{ onEmail }}" style="flex:1;min-width:180px;font-family:'Inter';font-size:15px;padding:14px 16px;border-radius:10px;border:1px solid #E3D9C6;background:#FBF8F1;color:#211C18;outline:none;"/>
+        <button onClick="{{ subscribe }}" style="font-family:'Inter';font-weight:600;font-size:15px;padding:14px 24px;border-radius:10px;border:none;background:#211C18;color:#FBF8F1;cursor:pointer;">{{ subscribeLabel }}</button>
+      </div>
+      <p style="font-size:12.5px;color:#A8997F;margin:12px 0 0;">By subscribing, you accept our Privacy Policy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer style="background:#211C18;color:#C9C0B0;padding:clamp(56px,7vw,88px) clamp(20px,5vw,56px) 36px;position:relative;overflow:hidden;">
+  <svg viewBox="0 0 400 400" style="position:absolute;bottom:-120px;right:-80px;width:400px;height:400px;opacity:.05;"><rect x="70" y="70" width="260" height="260" fill="none" stroke="#B68B3C" stroke-width="1"/><circle cx="200" cy="200" r="130" fill="none" stroke="#B68B3C" stroke-width="1"/><line x1="200" y1="60" x2="200" y2="340" stroke="#B68B3C" stroke-width=".6"/><line x1="60" y1="200" x2="340" y2="200" stroke="#B68B3C" stroke-width=".6"/></svg>
+  <div style="max-width:1200px;margin:0 auto;position:relative;display:grid;grid-template-columns:1.6fr 1fr 1.2fr 1.2fr;gap:40px;">
+    <div style="min-width:240px;">
+      <div style="margin-bottom:22px;">
+        <img src="assets/logo-white.png" alt="Da Vinci Consulting Services" style="height:46px;width:auto;display:block;"/>
+      </div>
+      <p style="font-size:14.5px;line-height:1.6;color:#9b9180;margin:0 0 20px;max-width:300px;">Compliance, credentialing, and operational consulting for behavioral health organizations, Phoenix-based, serving Arizona and beyond.</p>
+      <a href="tel:4806068602" style="text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.06em;color:#CDA14E;">CALL · 480-606-8602</a>
+    </div>
+    <div>
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#7a7164;margin:0 0 16px;">NAVIGATION</p>
+      <div style="display:flex;flex-direction:column;gap:11px;font-size:14.5px;">
+        <a href="Home.dc.html" style="text-decoration:none;color:#C9C0B0;" style-hover="color:#FBF8F1;">Home</a>
+        <a href="About.dc.html" style="text-decoration:none;color:#C9C0B0;" style-hover="color:#FBF8F1;">About Us</a>
+        <a href="Services.dc.html" style="text-decoration:none;color:#C9C0B0;" style-hover="color:#FBF8F1;">Services</a>
+        <a href="Blog.dc.html" style="text-decoration:none;color:#C9C0B0;" style-hover="color:#FBF8F1;">Blog</a>
+        <a href="Contact.dc.html" style="text-decoration:none;color:#C9C0B0;" style-hover="color:#FBF8F1;">Contact</a>
+      </div>
+    </div>
+    <div>
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#7a7164;margin:0 0 16px;">SERVICES</p>
+      <div style="display:flex;flex-direction:column;gap:11px;font-size:14px;">
+        <sc-for list="{{ services }}" as="svc" hint-placeholder-count="8">
+          <a href="{{ svc.href }}" style="text-decoration:none;color:#C9C0B0;" style-hover="color:#FBF8F1;">{{ svc.name }}</a>
+        </sc-for>
+      </div>
+    </div>
+    <div>
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;color:#7a7164;margin:0 0 16px;">CONTACT</p>
+      <p style="font-size:14px;line-height:1.6;color:#9b9180;margin:0 0 14px;">1141 East Glendale Avenue #1054<br>Phoenix, Arizona 85020</p>
+      <a href="mailto:tony@davinciconsultingservices.com" style="text-decoration:none;color:#C9C0B0;font-size:14px;word-break:break-all;display:block;margin-bottom:20px;" style-hover="color:#FBF8F1;">tony@davinciconsultingservices.com</a>
+      <a href="Contact.dc.html" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;padding:12px 22px;border-radius:999px;background:#B68B3C;color:#211C18;">Schedule a Consultation →</a>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:40px auto 0;position:relative;border-top:1px solid #332d26;padding-top:24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;font-size:12.5px;color:#7a7164;">
+    <span>© 2026 Da Vinci Consulting Services. All Rights Reserved.</span>
+    <span style="display:flex;gap:20px;flex-wrap:wrap;"><a href="#" style="text-decoration:none;color:#7a7164;" style-hover="color:#C9C0B0;">Privacy Policy</a><a href="#" style="text-decoration:none;color:#7a7164;" style-hover="color:#C9C0B0;">Terms of Service</a><span>Built by Phoenix Creative Works</span></span>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { megaOpen: false, mobileNav: false, openFaq: 0, email: "", subscribed: false, lead: { name: "", email: "", phone: "", facility: "", need: "Medicaid Credentialing", msg: "" }, leadSent: false, leadErr: false, leadErrMsg: "" };
+
+  get leadOptions() {
+    return ["Medicaid Credentialing", "Joint Commission Preparation", "Compliance Training", "State Licensing", "Risk Management", "Policies & Procedures", "Leadership Development", "Operational Consulting", "Not sure yet"];
+  }
+  updLead(k, v) { this.setState({ lead: { ...this.state.lead, [k]: v } }); }
+
+  get services() {
+    return [
+      { name: "Medicaid Credentialing", desc: "Secure provider status, fast", href: "Medicaid-Credentialing.dc.html" },
+      { name: "Joint Commission Prep", desc: "Accreditation, without surprises", href: "Joint-Commission-Prep.dc.html" },
+      { name: "Compliance Training", desc: "Audit-ready teams", href: "Compliance-Training.dc.html" },
+      { name: "State Licensing", desc: "Launch and expand, faster", href: "State-Licensing.dc.html" },
+      { name: "Company Integrity Audit", desc: "Find gaps before they cost you", href: "Integrity-Audit.dc.html" },
+      { name: "Risk Management", desc: "Turn risk into readiness", href: "Risk-Management.dc.html" },
+      { name: "Policies & Procedures", desc: "Joint Commission–aligned docs", href: "Policies-Procedures.dc.html" },
+      { name: "Leadership Development", desc: "Build leaders who last", href: "Leadership-Development.dc.html" }
+    ];
+  }
+
+  diamond(color) {
+    return React.createElement("span", { style: { width: "13px", height: "13px", border: "1.6px solid " + color, transform: "rotate(45deg)", display: "block" } });
+  }
+  ring(color) {
+    return React.createElement("span", { style: { width: "15px", height: "15px", borderRadius: "50%", border: "1.6px solid " + color, display: "block" } });
+  }
+  tri(color) {
+    return React.createElement("span", { style: { width: 0, height: 0, borderLeft: "8px solid transparent", borderRight: "8px solid transparent", borderBottom: "14px solid transparent", borderBottomColor: color === "#B68B3C" ? "transparent" : "transparent" } });
+  }
+
+  get featured() {
+    const ic = (svg) => svg;
+    return [
+      { name: "Medicaid Credentialing", icon: this.iconEl("ring"), blurb: "End-to-end support for provider ID applications and federal/state compliance, fast, accurate submissions that secure your Medicaid status.", cta: "Start credentialing", href: "Medicaid-Credentialing.dc.html" },
+      { name: "Joint Commission Prep", icon: this.iconEl("square"), blurb: "Mock surveys, compliance reviews, and corrective action plans so your facility meets every standard without last-minute surprises.", cta: "Prep for accreditation", href: "Joint-Commission-Prep.dc.html" },
+      { name: "Compliance Training", icon: this.iconEl("tri"), blurb: "Customized programs on behavioral health regulations that reduce risk, improve outcomes, and build a culture of accountability.", cta: "Customize training", href: "Compliance-Training.dc.html" },
+      { name: "State Licensing", icon: this.iconEl("diamond"), blurb: "We manage the full workflow, from application to approval, so you launch or expand faster, with fewer headaches.", cta: "Simplify licensing", href: "State-Licensing.dc.html" }
+    ];
+  }
+
+  iconEl(kind) {
+    const gold = "#B68B3C";
+    const base = { width: "22px", height: "22px", display: "block" };
+    if (kind === "ring") return React.createElement("svg", { viewBox: "0 0 24 24", style: base }, React.createElement("circle", { cx: 12, cy: 12, r: 9, fill: "none", stroke: gold, strokeWidth: 1.5 }), React.createElement("circle", { cx: 12, cy: 12, r: 3, fill: gold }));
+    if (kind === "square") return React.createElement("svg", { viewBox: "0 0 24 24", style: base }, React.createElement("rect", { x: 4, y: 4, width: 16, height: 16, fill: "none", stroke: gold, strokeWidth: 1.5 }), React.createElement("path", { d: "M8 12.5l3 3 5-6", fill: "none", stroke: gold, strokeWidth: 1.5, strokeLinecap: "round", strokeLinejoin: "round" }));
+    if (kind === "tri") return React.createElement("svg", { viewBox: "0 0 24 24", style: base }, React.createElement("path", { d: "M12 4 L21 20 L3 20 Z", fill: "none", stroke: gold, strokeWidth: 1.5, strokeLinejoin: "round" }));
+    if (kind === "diamond") return React.createElement("svg", { viewBox: "0 0 24 24", style: base }, React.createElement("rect", { x: 6, y: 6, width: 12, height: 12, fill: "none", stroke: gold, strokeWidth: 1.5, transform: "rotate(45 12 12)" }));
+    return null;
+  }
+
+  get partners() {
+    return ["Medicaid", "The Joint Commission", "AHCCCS", "AZ Dept. of Health", "ABCAC"];
+  }
+
+  get pillars() {
+    return [
+      { num: "01", title: "Compliance Strategies", desc: "Align operations with state and federal standards." },
+      { num: "02", title: "Medicaid Credentialing", desc: "Secure provider status and streamline enrollment." },
+      { num: "03", title: "Operational Consulting", desc: "Improve efficiency, workflows, and outcomes." },
+      { num: "04", title: "Leadership Development", desc: "Equip executives with tools to lead change." }
+    ];
+  }
+
+  get steps() {
+    return [
+      { num: "01", title: "Audit", desc: "We surface compliance gaps, billing issues, and workflow risks before they cost you.", delay: 0 },
+      { num: "02", title: "Strategy", desc: "A prioritized, state-specific plan tailored to your facility's goals and structure.", delay: 80 },
+      { num: "03", title: "Implement", desc: "Hands-on support, policies, credentialing, training, and survey prep, done with you.", delay: 160 },
+      { num: "04", title: "Sustain", desc: "Ongoing monitoring and renewals keep you audit-ready as regulations evolve.", delay: 240 }
+    ];
+  }
+
+  get stats() {
+    return [
+      { count: 50, prefix: "", suffix: "+", display: "50+", label: "Behavioral health facilities", delay: 0 },
+      { count: 98, prefix: "", suffix: "%", display: "98%", label: "Client retention", delay: 80 },
+      { count: 15, prefix: "", suffix: "+", display: "15+", label: "Years industry experience", delay: 160 },
+      { count: 0, prefix: "", suffix: "", display: "$10M+", label: "Credentialed Medicaid contracts", delay: 240 }
+    ];
+  }
+
+  get faqs() {
+    const data = [
+      { q: "What services does Da Vinci Consulting Services offer?", a: "End-to-end behavioral health consulting: Medicaid credentialing, Joint Commission survey preparation, compliance and quality training, state Department of Health licensing, company integrity audits, risk management, policies and procedures, and leadership development." },
+      { q: "How do you help my organization prepare for Joint Commission accreditation?", a: "We run mock surveys and gap assessments, train your staff on the standards, review documentation, build your plan of correction, and stay with you through the survey and triennial cycle, so accreditation arrives without surprises." },
+      { q: "Do you work with organizations outside of Arizona?", a: "Yes. We're Phoenix-based and deeply versed in Arizona requirements, and we support behavioral health organizations across the country, every strategy is tailored to your state's standards." },
+      { q: "How do you improve the efficiency of my facility?", a: "We audit your billing, documentation, and workflows, align policies with regulatory standards, and streamline operations, removing redundancy so your team spends less time on paperwork and more on care." }
+    ];
+    return data.map((f, i) => ({
+      q: f.q, a: f.a,
+      open: i === this.state.openFaq,
+      sign: i === this.state.openFaq ? "–" : "+",
+      toggle: () => this.setState(s => ({ openFaq: s.openFaq === i ? -1 : i }))
+    }));
+  }
+
+  renderVals() {
+    return {
+      services: this.services,
+      featured: this.featured,
+      partners: this.partners,
+      pillars: this.pillars,
+      steps: this.steps,
+      stats: this.stats,
+      faqs: this.faqs,
+      megaOpen: this.state.megaOpen,
+      mobileNav: this.state.mobileNav,
+      email: this.state.email,
+      subscribeLabel: this.state.subscribed ? "Subscribed ✓" : "Subscribe",
+      openMega: () => this.setState({ megaOpen: true }),
+      closeMega: () => this.setState({ megaOpen: false }),
+      toggleMobile: () => this.setState(s => ({ mobileNav: !s.mobileNav })),
+      onEmail: (e) => this.setState({ email: e.target.value }),
+      subscribe: () => { if (this.state.email.indexOf("@") > 0) this.setState({ subscribed: true }); },
+      leadOptions: this.leadOptions,
+      lead: this.state.lead,
+      leadSent: this.state.leadSent,
+      leadNotSent: !this.state.leadSent,
+      leadErr: this.state.leadErr,
+      leadErrMsg: this.state.leadErrMsg,
+      setLeadName: (e) => this.updLead("name", e.target.value),
+      setLeadEmail: (e) => this.updLead("email", e.target.value),
+      setLeadPhone: (e) => this.updLead("phone", e.target.value),
+      setLeadFacility: (e) => this.updLead("facility", e.target.value),
+      setLeadNeed: (e) => this.updLead("need", e.target.value),
+      setLeadMsg: (e) => this.updLead("msg", e.target.value),
+      submitLead: () => {
+        const l = this.state.lead;
+        if (!l.name.trim()) return this.setState({ leadErr: true, leadErrMsg: "Please enter your name." });
+        if (l.email.indexOf("@") < 1) return this.setState({ leadErr: true, leadErrMsg: "Please enter a valid email address." });
+        this.setState({ leadSent: true, leadErr: false });
+      }
+    };
+  }
+
+  componentDidMount() {
+    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const root = document;
+
+    // Stagger: honor data-reveal-delay on the CSS load animation (enhancement only;
+    // CSS guarantees the resting state is visible even if this never runs).
+    if (!reduce) {
+      root.querySelectorAll("[data-reveal][data-reveal-delay]").forEach(el => {
+        el.style.animationDelay = (el.getAttribute("data-reveal-delay") || 0) + "ms";
+      });
+      // Arc draws once on scroll-in.
+      const arc = root.querySelector("[data-arc] path[data-draw]");
+      if (arc) {
+        arc.style.strokeDashoffset = "1";
+        arc.style.transition = "stroke-dashoffset 1.6s cubic-bezier(.22,1,.36,1)";
+        const aio = new IntersectionObserver((ents) => {
+          ents.forEach(e => { if (e.isIntersecting) { arc.style.strokeDashoffset = "0"; aio.unobserve(arc); } });
+        }, { threshold: 0.3 });
+        aio.observe(arc);
+      }
+    }
+
+    // Counters
+    const counters = root.querySelectorAll("[data-count]");
+    const cio = new IntersectionObserver((ents) => {
+      ents.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        cio.unobserve(el);
+        const target = parseInt(el.getAttribute("data-count"), 10);
+        if (!target || reduce) return;
+        const prefix = el.getAttribute("data-prefix") || "";
+        const suffix = el.getAttribute("data-suffix") || "";
+        const dur = 1300; const t0 = performance.now();
+        const tick = (now) => {
+          const p = Math.min(1, (now - t0) / dur);
+          const eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = prefix + Math.round(target * eased) + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(el => cio.observe(el));
+
+    // Header solidify
+    const header = root.querySelector("[data-header]");
+    if (header) {
+      const onScroll = () => {
+        const s = window.scrollY > 24;
+        header.style.boxShadow = s ? "0 4px 24px rgba(33,28,24,.07)" : "none";
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+    }
+  }
+}
+</script>
+</body>
+</html>

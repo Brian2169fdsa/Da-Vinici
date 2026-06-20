@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Page Not Found — Da Vinci Consulting Services</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing:border-box; }
+  body { margin:0; background:#F6F1E7; -webkit-font-smoothing:antialiased; }
+  ::selection { background:#B68B3C; color:#211C18; }
+  @keyframes dvRise { from { transform:translateY(24px); } to { transform:translateY(0); } }
+  @keyframes dvDraw { to { stroke-dashoffset:0; } }
+  [data-reveal]{ animation:dvRise .75s cubic-bezier(.22,1,.36,1) both; }
+  @media (max-width:940px){ [data-desktop-nav]{display:none !important;} [data-mobile-toggle]{display:inline-flex !important;} }
+  @media (min-width:941px){ [data-mobile-toggle]{display:none !important;} }
+  @media (prefers-reduced-motion:reduce){ [data-reveal]{animation:none !important;} [data-draw]{stroke-dashoffset:0 !important;animation:none !important;} }
+</style>
+</helmet>
+
+<div style="font-family:'Inter',sans-serif;color:#3A342C;background:#F6F1E7;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column;">
+<dc-import name="SiteHeader" hint-size="100%,74px"></dc-import>
+
+<section data-screen-label="404" style="flex:1;margin-top:74px;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;padding:clamp(64px,10vw,140px) clamp(20px,5vw,40px);overflow:hidden;">
+  <svg viewBox="0 0 600 600" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(600px,92vw);height:min(600px,92vw);opacity:.6;pointer-events:none;">
+    <rect data-draw x="120" y="120" width="360" height="360" fill="none" stroke="#211C18" stroke-width="1" opacity=".1" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1;animation:dvDraw 1.6s cubic-bezier(.22,1,.36,1) .1s forwards;"/>
+    <circle data-draw cx="300" cy="300" r="190" fill="none" stroke="#B68B3C" stroke-width="1.2" opacity=".45" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1;animation:dvDraw 1.9s cubic-bezier(.22,1,.36,1) .3s forwards;"/>
+    <line data-draw x1="300" y1="70" x2="300" y2="530" stroke="#B68B3C" stroke-width=".6" opacity=".2" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1;animation:dvDraw 1.4s ease .5s forwards;"/>
+    <line data-draw x1="70" y1="300" x2="530" y2="300" stroke="#B68B3C" stroke-width=".6" opacity=".2" pathLength="1" style="stroke-dasharray:1;stroke-dashoffset:1;animation:dvDraw 1.4s ease .6s forwards;"/>
+  </svg>
+  <div data-reveal style="position:relative;max-width:560px;">
+    <p style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(80px,14vw,150px);line-height:1;letter-spacing:-.02em;color:#B68B3C;margin:0 0 8px;">404</p>
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B6155;margin:0 0 18px;">Out of proportion</p>
+    <h1 style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(28px,4vw,42px);line-height:1.1;letter-spacing:-.01em;color:#211C18;margin:0 0 18px;text-wrap:balance;">This page is out of proportion. Let's get you back.</h1>
+    <p style="font-size:17px;line-height:1.6;color:#3A342C;margin:0 0 34px;">The page you're looking for doesn't exist or has moved. Here are some helpful places to start.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
+      <a href="Home.dc.html" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:16px;padding:16px 30px;border-radius:999px;background:#B68B3C;color:#211C18;transition:background .15s;" style-hover="background:#CDA14E;">Back to Home</a>
+      <a href="Services.dc.html" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:16px;padding:16px 28px;border-radius:999px;background:transparent;color:#211C18;border:1px solid #211C18;transition:background .15s,color .15s;" style-hover="background:#211C18;color:#FBF8F1;">View Services</a>
+      <a href="Contact.dc.html" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:16px;padding:16px 28px;border-radius:999px;background:transparent;color:#211C18;border:1px solid #211C18;transition:background .15s,color .15s;" style-hover="background:#211C18;color:#FBF8F1;">Contact</a>
+    </div>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,560px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>

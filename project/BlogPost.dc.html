@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>{{ post.title }} — Da Vinci Consulting Services</title>
+<meta name="description" content="{{ post.excerpt }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:#F6F1E7; -webkit-font-smoothing:antialiased; }
+  ::selection { background:#B68B3C; color:#211C18; }
+  @keyframes dvAmbient { 0%,100%{transform:scale(1);} 50%{transform:scale(1.04);} }
+  @keyframes dvRise { from { transform:translateY(24px); } to { transform:translateY(0); } }
+  [data-reveal]{ animation:dvRise .75s cubic-bezier(.22,1,.36,1) both; }
+  @media (max-width:940px){ [data-desktop-nav]{display:none !important;} [data-mobile-toggle]{display:inline-flex !important;} }
+  @media (min-width:941px){ [data-mobile-toggle]{display:none !important;} }
+  @media (prefers-reduced-motion:reduce){ [data-ambient]{animation:none !important;} [data-reveal]{animation:none !important;} }
+</style>
+</helmet>
+
+<div style="font-family:'Inter',sans-serif;color:#3A342C;background:#F6F1E7;overflow-x:hidden;">
+
+<dc-import name="SiteHeader" hint-size="100%,74px"></dc-import>
+
+<!-- POST HEADER -->
+<article style="margin-top:74px;">
+  <header style="max-width:760px;margin:0 auto;padding:clamp(48px,7vw,88px) clamp(20px,5vw,40px) clamp(28px,4vw,40px);">
+    <div data-reveal>
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#6B6155;margin:0 0 20px;"><a href="Blog.dc.html" style="text-decoration:none;color:#876728;">Resources</a> <span style="color:#C9C0B0;">/</span> {{ post.cat }}</p>
+      <h1 style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(32px,4.6vw,52px);line-height:1.08;letter-spacing:-.015em;color:#211C18;margin:0 0 24px;text-wrap:balance;">{{ post.title }}</h1>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.04em;color:#6B6155;">
+        <span style="background:#211C18;color:#CDA14E;padding:6px 13px;border-radius:999px;text-transform:uppercase;">{{ post.cat }}</span>
+        <span>{{ post.date }}</span>
+        <span>·</span>
+        <span>{{ post.read }}</span>
+      </div>
+    </div>
+  </header>
+
+  <div data-reveal style="max-width:1000px;margin:0 auto;padding:0 clamp(20px,5vw,40px);">
+    <div style="position:relative;border-radius:18px;overflow:hidden;border:1px solid #E3D9C6;aspect-ratio:16/8;background:repeating-linear-gradient(135deg,#EFE7D6 0 11px,#FBF8F1 11px 22px);display:flex;align-items:center;justify-content:center;">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;color:#A8997F;text-transform:uppercase;">[ article hero image ]</span>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div data-reveal style="max-width:680px;margin:0 auto;padding:clamp(40px,6vw,72px) clamp(20px,5vw,40px) clamp(48px,7vw,88px);">
+    <p style="font-size:20px;line-height:1.6;color:#211C18;margin:0 0 32px;font-weight:500;">{{ post.excerpt }}</p>
+    <sc-for list="{{ post.blocks }}" as="b" hint-placeholder-count="6">
+      <sc-if value="{{ b.isH }}" hint-placeholder-val="{{ false }}">
+        <h2 style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(24px,3vw,30px);line-height:1.18;color:#211C18;margin:40px 0 16px;">{{ b.text }}</h2>
+      </sc-if>
+      <sc-if value="{{ b.isP }}" hint-placeholder-val="{{ true }}">
+        <p style="font-size:17.5px;line-height:1.75;color:#3A342C;margin:0 0 22px;">{{ b.text }}</p>
+      </sc-if>
+      <sc-if value="{{ b.isQuote }}" hint-placeholder-val="{{ false }}">
+        <blockquote style="margin:32px 0;padding:6px 0 6px 28px;border-left:3px solid #B68B3C;font-family:'Fraunces',serif;font-style:italic;font-size:22px;line-height:1.45;color:#211C18;">{{ b.text }}</blockquote>
+      </sc-if>
+    </sc-for>
+
+    <div style="margin-top:48px;padding-top:28px;border-top:1px solid #E3D9C6;display:flex;align-items:center;gap:14px;">
+      <div style="width:48px;height:48px;border-radius:50%;background:#EDE3D0;border:1px solid #E0D4BC;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:600;color:#876728;font-size:18px;">TR</div>
+      <div>
+        <p style="margin:0;font-weight:600;font-size:15px;color:#211C18;">Tony Renello, MS, LISAC</p>
+        <p style="margin:2px 0 0;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:#6B6155;">FOUNDER · DA VINCI CONSULTING</p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- RELATED -->
+<section style="padding:clamp(56px,8vw,96px) clamp(20px,5vw,56px);background:#EDE3D0;border-top:1px solid #E6DBC8;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <h2 data-reveal style="font-family:'Fraunces',serif;font-weight:550;font-size:clamp(24px,3.2vw,34px);color:#211C18;margin:0 0 32px;">Continue reading</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;">
+      <sc-for list="{{ related }}" as="r" hint-placeholder-count="3">
+        <a data-reveal href="BlogPost.dc.html" style="text-decoration:none;display:flex;flex-direction:column;background:#FFFFFF;border:1px solid #EBE2D0;border-radius:14px;overflow:hidden;box-shadow:0 1px 3px rgba(33,28,24,.05);transition:transform .18s,box-shadow .18s,border-color .18s;" style-hover="transform:translateY(-4px);box-shadow:0 16px 38px rgba(33,28,24,.12);border-color:#B68B3C;">
+          <div style="aspect-ratio:16/10;background:repeating-linear-gradient(135deg,#EFE7D6 0 10px,#F6F1E7 10px 20px);display:flex;align-items:center;justify-content:center;border-bottom:1px solid #EBE2D0;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.08em;color:#A8997F;text-transform:uppercase;">[ image ]</span>
+          </div>
+          <div style="padding:22px;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;color:#876728;text-transform:uppercase;">{{ r.cat }}</span>
+            <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:19px;line-height:1.22;color:#211C18;margin:10px 0 0;">{{ r.title }}</h3>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<dc-import name="ImageBanner" img="assets/boardroom.png" eyebrow="Put it into practice" heading="Have a question about your facility?" body="Talk it through with a senior consultant, no pressure, just clarity." cta="Schedule a Consultation" href="Contact.dc.html" hint-size="100%,520px"></dc-import>
+
+<dc-import name="SiteFooter" hint-size="100%,560px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:1400},&quot;title&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Preparing for your first Joint Commission survey&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;cat&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Regulatory Excellence&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;date&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;June 2026&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;read&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;6 min read&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;excerpt&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;A first accreditation survey doesn't have to be daunting.&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  get post() {
+    const p = this.props || {};
+    return {
+      title: p.title ?? "Preparing for your first Joint Commission survey",
+      cat: p.cat ?? "Regulatory Excellence",
+      date: p.date ?? "June 2026",
+      read: p.read ?? "6 min read",
+      excerpt: p.excerpt ?? "A first accreditation survey doesn't have to be daunting. With the right preparation, your team can walk in confident and walk out accredited.",
+      blocks: [
+        { isP: true, text: "For many behavioral health organizations, the first Joint Commission survey feels like the highest-stakes day on the calendar. The standards are rigorous, the documentation is extensive, and the outcome shapes access to contracts and reimbursement for years to come." },
+        { isH: true, text: "Start with a gap assessment" },
+        { isP: true, text: "Before you prepare for the survey itself, you need an honest picture of where you stand. A structured gap assessment compares your current operations against the applicable standards and surfaces the issues that would become findings on survey day." },
+        { isP: true, text: "The goal isn't to pass a practice test. It's to build the habits, documentation, and systems that make compliance the natural state of your organization rather than a scramble before each cycle." },
+        { isQuote: true, text: "Accreditation isn't a day you survive. It's a standard you operate to, every day." },
+        { isH: true, text: "Train the whole team, not just leadership" },
+        { isP: true, text: "Surveyors talk to front-line staff. When everyone understands their role in compliance, and can speak to it confidently, your survey reflects the real strength of your program. Mock surveys are the most effective way to build that readiness." },
+        { isH: true, text: "Build your plan of correction in advance" },
+        { isP: true, text: "Even strong organizations receive findings. What separates a smooth accreditation from a stressful one is having a clear, practiced process for addressing them quickly and demonstrating sustained compliance." }
+      ]
+    };
+  }
+  get related() {
+    return [
+      { title: "What Medicaid credentialing actually requires in Arizona", cat: "Regulatory Excellence" },
+      { title: "Building a culture of compliance accountability", cat: "Professional Collaboration" },
+      { title: "Audit-ready: a quarterly compliance checklist", cat: "Seamless Operations" }
+    ];
+  }
+  renderVals() {
+    const post = this.post;
+    return {
+      post,
+      related: this.related,
+      // expose block flags with safe defaults
+    };
+  }
+  componentDidMount() {
+    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+    document.querySelectorAll("[data-reveal][data-reveal-delay]").forEach(el => { el.style.animationDelay = (el.getAttribute("data-reveal-delay") || 0) + "ms"; });
+  }
+}
+</script>
+</body>
+</html>

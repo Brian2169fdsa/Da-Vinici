@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>{{ sv.title }}, Da Vinci Consulting Services</title>
+<meta name="description" content="{{ sv.lead }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:#F6F1E7; -webkit-font-smoothing:antialiased; }
+  ::selection { background:#B68B3C; color:#211C18; }
+  @keyframes dvAmbient { 0%,100%{transform:scale(1);} 50%{transform:scale(1.04);} }
+  @keyframes dvRise { from { transform:translateY(24px); } to { transform:translateY(0); } }
+  [data-reveal]{ animation:dvRise .75s cubic-bezier(.22,1,.36,1) both; }
+  @media (max-width:940px){ [data-desktop-nav]{display:none !important;} [data-mobile-toggle]{display:inline-flex !important;} }
+  @media (min-width:941px){ [data-mobile-toggle]{display:none !important;} }
+  @media (prefers-reduced-motion:reduce){ [data-ambient]{animation:none !important;} [data-reveal]{animation:none !important;} }
+</style>
+</helmet>
+
+<div style="font-family:'Inter',sans-serif;color:#3A342C;background:#F6F1E7;overflow-x:hidden;">
+
+<dc-import name="SiteHeader" hint-size="100%,74px"></dc-import>
+
+<!-- HERO -->
+<section data-screen-label="Service Hero" style="position:relative;margin-top:74px;min-height:clamp(440px,60vh,580px);display:flex;align-items:center;overflow:hidden;">
+  <img src="assets/team-experts.png" alt="{{ sv.h1 }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;"/>
+  <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(24,20,16,.90) 0%,rgba(24,20,16,.66) 42%,rgba(24,20,16,.24) 70%,rgba(24,20,16,.02) 100%);"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,16,12,.55) 0%,rgba(20,16,12,.10) 28%,transparent 52%);"></div>
+  <div data-reveal style="position:relative;z-index:1;max-width:1200px;margin:0 auto;width:100%;padding:clamp(56px,8vw,112px) clamp(20px,5vw,56px);">
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:#E6C98A;margin:0 0 22px;"><a href="Services.dc.html" style="text-decoration:none;color:#CDA14E;">Services</a> <span style="color:#B8AD98;">/</span> {{ sv.crumb }}</p>
+    <h1 style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(34px,4.8vw,58px);line-height:1.05;letter-spacing:-.015em;color:#FBF8F1;margin:0 0 22px;max-width:820px;text-wrap:balance;">{{ sv.h1 }}</h1>
+    <p style="font-size:clamp(17px,1.4vw,19px);line-height:1.6;color:#E7DECB;margin:0 0 32px;max-width:620px;">{{ sv.lead }}</p>
+    <a href="Contact.dc.html" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:16px;padding:16px 30px;border-radius:999px;background:#B68B3C;color:#211C18;transition:background .15s;" style-hover="background:#CDA14E;">{{ sv.cta }} →</a>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section style="padding:clamp(56px,8vw,104px) clamp(20px,5vw,56px);">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(36px,6vw,72px);align-items:start;">
+    <div data-reveal>
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#6B6155;margin:0 0 18px;display:flex;align-items:center;gap:12px;"><span style="width:28px;height:1px;background:#B68B3C;display:inline-block;"></span>The problem</p>
+      <h2 style="font-family:'Fraunces',serif;font-weight:550;font-size:clamp(26px,3.6vw,40px);line-height:1.12;color:#211C18;margin:0;">{{ sv.problemTitle }}</h2>
+    </div>
+    <div data-reveal data-reveal-delay="100">
+      <p style="font-size:17px;line-height:1.7;color:#3A342C;margin:0;">{{ sv.problem }}</p>
+    </div>
+  </div>
+</section>
+
+<!-- RISKS -->
+<section style="padding:clamp(48px,7vw,88px) clamp(20px,5vw,56px);background:#EDE3D0;border-top:1px solid #E6DBC8;border-bottom:1px solid #E6DBC8;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <h2 data-reveal style="font-family:'Fraunces',serif;font-weight:550;font-size:clamp(24px,3.2vw,34px);line-height:1.1;color:#211C18;margin:0 0 36px;">Potential risks</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;">
+      <sc-for list="{{ sv.risks }}" as="r" hint-placeholder-count="4">
+        <div data-reveal data-reveal-delay="{{ r.delay }}" style="background:#F6F1E7;border:1px solid #E3D9C6;border-left:3px solid #B68B3C;border-radius:12px;padding:24px 22px;">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+            <svg viewBox="0 0 24 24" style="width:20px;height:20px;flex:none;"><path d="M12 3 L22 20 L2 20 Z" fill="none" stroke="#B68B3C" stroke-width="1.5" stroke-linejoin="round"/><line x1="12" y1="10" x2="12" y2="14" stroke="#B68B3C" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="17" r=".9" fill="#B68B3C"/></svg>
+            <h3 style="font-family:'Inter';font-weight:600;font-size:16px;color:#211C18;margin:0;">{{ r.title }}</h3>
+          </div>
+          <p style="font-size:14px;line-height:1.55;color:#6B6155;margin:0;">{{ r.desc }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- SOLVE STEPS -->
+<section style="padding:clamp(56px,8vw,104px) clamp(20px,5vw,56px);">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div data-reveal style="max-width:640px;margin-bottom:48px;">
+      <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#6B6155;margin:0 0 16px;display:flex;align-items:center;gap:12px;"><span style="width:28px;height:1px;background:#B68B3C;display:inline-block;"></span>The solution</p>
+      <h2 style="font-family:'Fraunces',serif;font-weight:550;font-size:clamp(26px,3.6vw,40px);line-height:1.12;color:#211C18;margin:0;">How Da Vinci solves it.</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:2px;">
+      <sc-for list="{{ sv.steps }}" as="s" hint-placeholder-count="5">
+        <div data-reveal style="display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,44px);padding:28px 0;border-top:1px solid #E3D9C6;align-items:start;">
+          <span style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(34px,4vw,48px);line-height:1;color:#B68B3C;">{{ s.num }}</span>
+          <div>
+            <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:clamp(19px,2.2vw,23px);color:#211C18;margin:0 0 8px;">{{ s.title }}</h3>
+            <p style="font-size:15.5px;line-height:1.6;color:#6B6155;margin:0;max-width:680px;">{{ s.desc }}</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <div data-reveal style="margin-top:44px;background:#2C2620;border-radius:16px;padding:clamp(32px,5vw,52px);position:relative;overflow:hidden;">
+      <svg viewBox="0 0 200 200" style="position:absolute;top:-30px;right:-20px;width:200px;height:200px;opacity:.1;"><rect x="40" y="40" width="120" height="120" fill="none" stroke="#B68B3C" stroke-width="1"/><circle cx="100" cy="100" r="60" fill="none" stroke="#B68B3C" stroke-width="1"/></svg>
+      <p style="position:relative;font-family:'Fraunces',serif;font-style:italic;font-weight:400;font-size:clamp(19px,2.4vw,26px);line-height:1.45;color:#FBF8F1;margin:0 0 26px;max-width:720px;">{{ sv.closing }}</p>
+      <a href="Contact.dc.html" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:16px;padding:15px 28px;border-radius:999px;background:#B68B3C;color:#211C18;transition:background .15s;position:relative;" style-hover="background:#CDA14E;">{{ sv.cta }} →</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section style="padding:clamp(56px,8vw,104px) clamp(20px,5vw,56px);background:#EDE3D0;border-top:1px solid #E6DBC8;">
+  <div data-reveal style="max-width:900px;margin:0 auto;text-align:center;">
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B6155;margin:0 0 28px;">Trusted by · What people say</p>
+    <p style="font-family:'Fraunces',serif;font-weight:400;font-style:italic;font-size:clamp(20px,2.6vw,28px);line-height:1.45;color:#211C18;margin:0 0 28px;letter-spacing:-.01em;">"{{ sv.tquote }}"</p>
+    <span style="font-weight:600;font-size:16px;color:#211C18;">{{ sv.tname }}</span>
+  </div>
+</section>
+
+<!-- INLINE CONTACT FORM -->
+<section style="padding:clamp(56px,8vw,104px) clamp(20px,5vw,56px);">
+  <div style="max-width:760px;margin:0 auto;">
+    <div data-reveal style="text-align:center;margin-bottom:40px;">
+      <h2 style="font-family:'Fraunces',serif;font-weight:550;font-size:clamp(26px,3.6vw,40px);line-height:1.1;color:#211C18;margin:0 0 12px;">Contact us any time.</h2>
+      <p style="font-size:16px;line-height:1.6;color:#6B6155;margin:0;">Fast response from a senior consultant. No pressure, just clarity.</p>
+    </div>
+    <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+      <div style="text-align:center;background:#FBF8F1;border:1px solid #E3D9C6;border-radius:14px;padding:48px 32px;">
+        <div style="width:52px;height:52px;margin:0 auto 18px;border-radius:50%;border:1.5px solid #1F8A5B;display:flex;align-items:center;justify-content:center;"><span style="color:#1F8A5B;font-size:22px;">✓</span></div>
+        <h3 style="font-family:'Fraunces',serif;font-weight:600;font-size:24px;color:#211C18;margin:0 0 8px;">Thank you, message received.</h3>
+        <p style="font-size:15px;color:#6B6155;margin:0;">A senior consultant will be in touch shortly.</p>
+      </div>
+    </sc-if>
+    <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+      <div data-reveal style="background:#FBF8F1;border:1px solid #E3D9C6;border-radius:16px;padding:clamp(28px,4vw,40px);">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:16px;">
+          <label style="display:block;"><span style="display:block;font-size:13px;font-weight:600;color:#3A342C;margin-bottom:7px;">Full Name</span><input value="{{ f.name }}" onInput="{{ setName }}" placeholder="Jane Doe" style="width:100%;font-family:'Inter';font-size:15px;padding:13px 15px;border-radius:10px;border:1px solid #E3D9C6;background:#FFF;color:#211C18;outline:none;"/></label>
+          <label style="display:block;"><span style="display:block;font-size:13px;font-weight:600;color:#3A342C;margin-bottom:7px;">Email Address</span><input value="{{ f.email }}" onInput="{{ setEmail }}" placeholder="jane@facility.org" style="width:100%;font-family:'Inter';font-size:15px;padding:13px 15px;border-radius:10px;border:1px solid #E3D9C6;background:#FFF;color:#211C18;outline:none;"/></label>
+        </div>
+        <label style="display:block;margin-bottom:16px;"><span style="display:block;font-size:13px;font-weight:600;color:#3A342C;margin-bottom:7px;">Phone Number</span><input value="{{ f.phone }}" onInput="{{ setPhone }}" placeholder="480-606-8602" style="width:100%;font-family:'Inter';font-size:15px;padding:13px 15px;border-radius:10px;border:1px solid #E3D9C6;background:#FFF;color:#211C18;outline:none;"/></label>
+        <label style="display:block;margin-bottom:8px;"><span style="display:block;font-size:13px;font-weight:600;color:#3A342C;margin-bottom:7px;">Your Message</span><textarea value="{{ f.msg }}" onInput="{{ setMsg }}" placeholder="Tell us about your facility and what you need help with." rows="4" style="width:100%;font-family:'Inter';font-size:15px;padding:13px 15px;border-radius:10px;border:1px solid #E3D9C6;background:#FFF;color:#211C18;outline:none;resize:vertical;"></textarea></label>
+        <sc-if value="{{ err }}" hint-placeholder-val="{{ false }}"><p style="font-size:13px;color:#B4452F;margin:4px 0 0;">{{ errMsg }}</p></sc-if>
+        <button onClick="{{ submit }}" style="margin-top:16px;width:100%;font-family:'Inter';font-weight:600;font-size:16px;padding:16px;border-radius:10px;border:none;background:#211C18;color:#FBF8F1;cursor:pointer;transition:background .15s;" style-hover="background:#2C2620;">Send Message</button>
+      </div>
+    </sc-if>
+  </div>
+</section>
+
+<dc-import name="ImageBanner" img="assets/team-experts.png" eyebrow="Ready when you are" heading="Let's solve it together." body="Talk through your goals with a senior consultant and get a clear, tailored path forward." cta="Schedule a Consultation" href="Contact.dc.html" hint-size="100%,520px"></dc-import>
+
+<dc-import name="SiteFooter" hint-size="100%,560px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:900},&quot;slug&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;medicaid&quot;,&quot;options&quot;:[&quot;medicaid&quot;,&quot;joint-commission&quot;,&quot;compliance-training&quot;,&quot;state-licensing&quot;,&quot;integrity-audit&quot;,&quot;risk-management&quot;,&quot;policies&quot;,&quot;leadership&quot;],&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { f: { name: "", email: "", phone: "", msg: "" }, sent: false, err: false, errMsg: "" };
+
+  get DATA() {
+    return {
+      "medicaid": {
+        crumb: "Medicaid Credentialing", title: "Medicaid Credentialing & Application",
+        h1: "Medicaid credentialing, handled with precision.",
+        lead: "Streamline the credentialing process with expert-driven support. We ensure your application is accurate, compliant, and processed efficiently, so you can focus on exceptional patient care without unnecessary delays.",
+        cta: "Start Your Credentialing Process",
+        problemTitle: "Complex applications, costly delays.",
+        problem: "Navigating Medicaid credentialing can be overwhelming and time-consuming. Complex application requirements, frequent updates to state regulations, and administrative errors often lead to delays or denials, preventing providers from enrolling and serving patients effectively.",
+        risks: [
+          { title: "Loss of Revenue", desc: "Delayed credentialing means missed billing opportunities for Medicaid-covered services.", delay: 0 },
+          { title: "Patient Access Issues", desc: "Without Medicaid credentials, providers may lose patients who depend on it for care.", delay: 80 },
+          { title: "Compliance Challenges", desc: "Errors or missed deadlines can lead to compliance issues or outright rejection.", delay: 160 },
+          { title: "Administrative Overload", desc: "Staff struggle to manage application complexity alongside other priorities.", delay: 240 }
+        ],
+        steps: [
+          { num: "01", title: "Expert Guidance", desc: "Navigate the complex process with skilled professionals handling every step with care and precision." },
+          { num: "02", title: "Accuracy & Compliance", desc: "All documentation complete, accurate, and compliant with state-specific regulations to accelerate processing." },
+          { num: "03", title: "Streamlined Process", desc: "We manage timelines and reduce the administrative burden so your team can focus on quality care." },
+          { num: "04", title: "Personalized Support", desc: "A tailored approach to your organization's goals, challenges, and successful enrollment." }
+        ],
+        closing: "Let Da Vinci handle the complexities of Medicaid credentialing, so you can focus on what matters most, providing exceptional care. Your credentials are in expert hands.",
+        tquote: "Working with Tony at DaVinci offers any business the opportunity to fast-track start-up duties, Joint Commission and licensing prep, policies and procedures, and assistance with credentialing applications to avoid delays. Tony is always available to assist programs large and small. I recommend a consultation that takes the guesswork out of the process.",
+        tname: "Kristin Glavin"
+      },
+      "joint-commission": {
+        crumb: "Joint Commission Prep", title: "Joint Commission Survey Assistance",
+        h1: "Accreditation, without the surprises.",
+        lead: "Achieve accreditation with confidence. Our expert guidance ensures your organization meets the highest standards of care, compliance, and operational efficiency, at every stage of the survey cycle.",
+        cta: "Prep for Accreditation Now",
+        problemTitle: "Rigorous standards, limited resources.",
+        problem: "Navigating the Joint Commission accreditation process can be daunting. With ever-changing regulations, rigorous standards, and limited resources, many facilities feel overwhelmed preparing for surveys. A lack of preparation can lead to missed accreditation, compliance penalties, and lost credibility.",
+        risks: [
+          { title: "Lost Accreditation", desc: "Prevents access to contracts and reimbursement from key payors.", delay: 0 },
+          { title: "Regulatory Fines", desc: "Failing to meet compliance standards can lead to costly penalties.", delay: 80 },
+          { title: "Operational Disruptions", desc: "Unresolved deficiencies can halt workflows and patient care.", delay: 160 },
+          { title: "Reputational Damage", desc: "Lack of accreditation diminishes public trust in your facility.", delay: 240 }
+        ],
+        steps: [
+          { num: "01", title: "Mock Surveys & Gap Assessments", desc: "We simulate the Joint Commission process, identify compliance gaps, and provide actionable recommendations." },
+          { num: "02", title: "Survey Preparation Training", desc: "Equip your staff with the knowledge and confidence to navigate accreditation, through tailored workshops." },
+          { num: "03", title: "Documentation Review", desc: "Ensure all records are complete, organized, and clearly demonstrate compliance." },
+          { num: "04", title: "Plan of Correction Support", desc: "Create and implement effective plans of correction to address any identified deficiencies." },
+          { num: "05", title: "Ongoing Compliance Monitoring", desc: "Systems to maintain continuous readiness for triennial surveys and long-term accreditation." }
+        ],
+        closing: "We simplify the Joint Commission process with tailored support and expert guidance, so your facility meets every requirement and accreditation arrives without surprises.",
+        tquote: "Working with Tony at DaVinci offers any business the opportunity to fast-track start-up duties, preparation for Joint Commission and licensing surveys, policies and procedures, and credentialing assistance. Tony is always available to assist both small and large healthcare programs. I recommend a consultation that can result in faster start-up and faster ROI.",
+        tname: "Kristin Glavin"
+      },
+      "compliance-training": {
+        crumb: "Compliance Training", title: "Healthcare Quality Compliance Training",
+        h1: "Compliance training that protects your accreditation.",
+        lead: "Customized programs and real-world mock survey simulations help your behavioral health team meet regulatory standards, deliver high-quality care, and maintain operational excellence.",
+        cta: "Customize Your Training Plan",
+        problemTitle: "An ever-changing regulatory landscape.",
+        problem: "Behavioral healthcare organizations face constant regulatory change. With limited time and growing demands, staying ahead of compliance updates is a challenge, especially when it impacts clinical outcomes and audit readiness. Without structured training, your team may face failed audits, penalties, and inefficiencies.",
+        risks: [
+          { title: "Failed Accreditation Audits", desc: "Compliance gaps can result in Joint Commission penalties or loss of accreditation.", delay: 0 },
+          { title: "Operational Inefficiencies", desc: "Inadequate processes slow systems, reduce productivity, and increase costs.", delay: 80 },
+          { title: "Reputational Damage", desc: "Failed audits or poor scores harm patient trust and stakeholder confidence.", delay: 160 },
+          { title: "Staff Burnout", desc: "Without clear systems, compliance tasks overwhelm your team and hurt morale.", delay: 240 }
+        ],
+        steps: [
+          { num: "01", title: "Mock Survey Simulations", desc: "Joint Commission-style assessments help staff identify and correct weaknesses before real audits." },
+          { num: "02", title: "Custom Training Programs", desc: "Tailored to your workflows, facility type, and regulatory needs for measurable improvement." },
+          { num: "03", title: "Ongoing Support", desc: "We keep you informed on rule changes with updated guidance so your team never falls behind." },
+          { num: "04", title: "Framework Design", desc: "Streamlined frameworks that clarify compliance roles and align operations with regulators." },
+          { num: "05", title: "Hands-On Strategy", desc: "One-on-one support and actionable feedback, from front-line staff to leadership teams." }
+        ],
+        closing: "Empower your organization with practical compliance training that supports patient care and operational excellence.",
+        tquote: "Tony at Da Vinci Consulting was fantastic to work with, professional, attentive, and he really understood my needs. He offered insightful advice and solutions that made a big difference in my project. I highly recommend working with him.",
+        tname: "Adam Parker"
+      },
+      "state-licensing": {
+        crumb: "State Licensing", title: "State Department of Health Licensing",
+        h1: "Get licensed faster, with expert support.",
+        lead: "We handle the entire process, from paperwork to inspections, so your behavioral health facility can launch or expand with confidence.",
+        cta: "Simplify Your Licensing Steps",
+        problemTitle: "Why licensing becomes a roadblock.",
+        problem: "Navigating state licensing can stall your entire operation. Shifting regulations, vague documentation standards, and unclear timelines often lead to costly delays, denials, or rework. Without experienced guidance, even prepared organizations can get stuck in the system.",
+        risks: [
+          { title: "Operational Delays", desc: "Missed launch dates or expansion freezes disrupt care delivery and strain teams.", delay: 0 },
+          { title: "Regulatory Violations", desc: "Small paperwork errors can trigger investigations, rejections, or fines.", delay: 80 },
+          { title: "Financial Losses", desc: "Licensing bottlenecks stall billing, costing thousands in missed revenue.", delay: 160 },
+          { title: "Reputation Damage", desc: "Delays and denials undermine credibility with payers, partners, and patients.", delay: 240 }
+        ],
+        steps: [
+          { num: "01", title: "Complete Licensing Navigation", desc: "We manage state-specific submissions, requirements, and approval timelines so nothing gets missed." },
+          { num: "02", title: "Policy & Procedure Compliance", desc: "Align internal policies with state health department standards to eliminate gaps." },
+          { num: "03", title: "Inspection-Ready Preparation", desc: "Walkthroughs, virtual or on-site, identify issues and prepare your team for inspections." },
+          { num: "04", title: "Compliance Monitoring", desc: "We track evolving state regulations to keep you up to date and audit-ready." },
+          { num: "05", title: "Renewals & Ongoing Support", desc: "We assist with license renewals and provide long-term compliance support as you grow." }
+        ],
+        closing: "With Da Vinci, you'll avoid delays, denials, and last-minute scrambling, a seamless, proactive path to state licensing so you can focus on delivering care.",
+        tquote: "Tony has been a leader and innovator in the mental and behavioral health sector for many years. I trust his skills when it comes to ethics, responsibilities, and procedures. Whether it is licensing or accreditations, I can safely and confidently refer providers to DaVinci.",
+        tname: "Alan Weaver"
+      },
+      "integrity-audit": {
+        crumb: "Company Integrity Audit", title: "Company Integrity Audit",
+        h1: "Compliance audits that protect revenue and reduce risk.",
+        lead: "Uncover operational blind spots, strengthen compliance, and prevent costly errors with Company Integrity Audits designed specifically for behavioral healthcare organizations.",
+        cta: "Schedule Your Audit",
+        problemTitle: "Vulnerabilities stack up fast.",
+        problem: "Most behavioral health teams are stretched thin. Billing issues, incomplete documentation, or outdated compliance practices often go unnoticed, until they cost you. Without a structured internal review, vulnerabilities stack up fast, leading to denied claims, missed revenue, and regulatory penalties.",
+        risks: [
+          { title: "Compliance Violations", desc: "Regulatory fines or loss of accreditation status.", delay: 0 },
+          { title: "Revenue Losses", desc: "Denied claims and reduced reimbursements.", delay: 80 },
+          { title: "Operational Inefficiencies", desc: "Wasted time and misaligned workflows.", delay: 160 },
+          { title: "Reputational Damage", desc: "Damaged credibility with stakeholders and payers.", delay: 240 }
+        ],
+        steps: [
+          { num: "01", title: "Billing Code Review", desc: "We ensure accuracy, compliance with payer guidelines, and maximized reimbursements." },
+          { num: "02", title: "Clinical Documentation Analysis", desc: "Our experts review clinical notes for accuracy, completeness, and regulatory alignment." },
+          { num: "03", title: "Compliance Optimization", desc: "We assess against health department rules, accreditation standards, and payor contracts, with a clear action plan." },
+          { num: "04", title: "Fresh Perspective", desc: "Decades of behavioral health experience uncover inefficiencies internal teams overlook." },
+          { num: "05", title: "Tailored Action Plan", desc: "Prioritized recommendations to streamline operations and protect your revenue." }
+        ],
+        closing: "We identify and resolve your most critical compliance gaps, before they escalate.",
+        tquote: "Da Vinci Consulting Services exceeded my expectations in every way. Their team brought a wealth of knowledge and experience, helping us navigate complex challenges with ease. They understood our unique needs and provided actionable solutions that made a real difference. Top-notch support and professionalism.",
+        tname: "Michael Cunningham"
+      },
+      "risk-management": {
+        crumb: "Risk Management", title: "Risk Management Solutions",
+        h1: "Risk management that safeguards your operations.",
+        lead: "Stay ahead of challenges with tailored risk management solutions. From compliance training to operational assessments, we equip your team to navigate risk and maintain excellence.",
+        cta: "Explore Risk Training",
+        problemTitle: "Proactive measures, or costly exposure.",
+        problem: "Behavioral healthcare organizations face continuous regulatory change, operational vulnerabilities, and patient safety risks. Without proactive measures, these issues can lead to financial losses, legal exposure, and reputational harm.",
+        risks: [
+          { title: "Regulatory Fines & Penalties", desc: "Non-compliance can result in hefty fines and even facility shutdowns.", delay: 0 },
+          { title: "Patient Harm", desc: "Poor risk management leads to adverse outcomes and legal liability.", delay: 80 },
+          { title: "Financial Loss", desc: "Misaligned practices waste resources and pull focus from delivering care.", delay: 160 },
+          { title: "Reputational Damage", desc: "Regulatory scrutiny undermines credibility with patients and stakeholders.", delay: 240 }
+        ],
+        steps: [
+          { num: "01", title: "Risk Assessment & Audit", desc: "Identify gaps in compliance, safety protocols, and workflows through structured evaluations." },
+          { num: "02", title: "Policy & Process Development", desc: "Build or refine risk-mitigation frameworks to meet standards and minimize liability." },
+          { num: "03", title: "Staff Training & Readiness", desc: "Empower your team to recognize, respond to, and prevent risk scenarios." },
+          { num: "04", title: "Operational Workflow Review", desc: "Streamline operations and eliminate inefficiencies that increase exposure." },
+          { num: "05", title: "Ongoing Risk Monitoring", desc: "Updated tools, compliance alerts, and strategy sessions for long-term success." }
+        ],
+        closing: "Our expertise turns risk into readiness, keeping your organization compliant, efficient, and ready for anything.",
+        tquote: "Da Vinci Consulting Services exceeded my expectations in every way. Their team brought a wealth of knowledge and experience, helping us navigate complex challenges with ease. The level of support and professionalism was truly top-notch. I highly recommend them.",
+        tname: "Michael Cunningham"
+      },
+      "policies": {
+        crumb: "Policies & Procedures", title: "Policies & Procedures Support",
+        h1: "Custom policies for compliance and operational excellence.",
+        lead: "Create a strong foundation with tailored policies and procedures that align with Joint Commission standards and support regulatory compliance.",
+        cta: "Customize Your Policies",
+        problemTitle: "Inconsistent or outdated policies.",
+        problem: "Behavioral healthcare organizations often struggle with policies that don't align with current regulations or operational needs. These inconsistencies lead to inefficiencies, compliance risks, and potential penalties, and many lack the expertise to create or update them effectively.",
+        risks: [
+          { title: "Compliance Penalties", desc: "Failing to meet standards can result in fines, audits, and accreditation delays.", delay: 0 },
+          { title: "Operational Inefficiencies", desc: "Outdated or unclear policies slow workflows and confuse staff.", delay: 80 },
+          { title: "Reputation Damage", desc: "Compliance issues or operational failures harm credibility and patient trust.", delay: 160 },
+          { title: "Employee Burnout", desc: "Unclear procedures overwhelm teams and erode morale over time.", delay: 240 }
+        ],
+        steps: [
+          { num: "01", title: "Policy Development", desc: "Tailored policies for any level of care, aligned with Joint Commission and regulatory guidelines." },
+          { num: "02", title: "Policy Updates & Audits", desc: "Review existing policies for gaps and outdated practices; update to maintain compliance and clarity." },
+          { num: "03", title: "Staff Training on New Policies", desc: "Workshops and guides so your staff understands and follows updated procedures." },
+          { num: "04", title: "Implementation Support", desc: "Roll out new policies seamlessly and monitor adoption across your organization." },
+          { num: "05", title: "Operational Optimization", desc: "Align policies with workflows to reduce redundancy and streamline processes." }
+        ],
+        closing: "We create a framework of policies and procedures that ensures compliance, streamlines operations, and empowers your team.",
+        tquote: "Tony at Da Vinci Consulting was fantastic to work with, professional, attentive, and he really understood my needs. He offered insightful advice and solutions that made a big difference. I highly recommend working with him.",
+        tname: "Adam Parker"
+      },
+      "leadership": {
+        crumb: "Leadership Development", title: "Leadership Development",
+        h1: "Build leaders who last.",
+        lead: "Empower your team with the tools and strategies to lead with confidence and purpose. We create tailored programs that inspire innovation, foster collaboration, and drive organizational success.",
+        cta: "Build Leadership Skills",
+        problemTitle: "Strong organizations need strong leaders.",
+        problem: "Effective leadership is critical, yet many teams lack the training or resources to cultivate strong leaders. Without robust leadership, organizations struggle with operational inefficiencies, staff disengagement, and limited growth opportunities.",
+        risks: [
+          { title: "Operational Inefficiency", desc: "Poor leadership leads to disorganized workflows and missed improvements.", delay: 0 },
+          { title: "Staff Turnover", desc: "Lack of direction and mentorship drives dissatisfaction and high turnover.", delay: 80 },
+          { title: "Limited Growth", desc: "Without effective leaders, organizations struggle to adapt or scale.", delay: 160 },
+          { title: "Compliance Challenges", desc: "Ineffective leaders may fail to prioritize regulatory requirements.", delay: 240 }
+        ],
+        steps: [
+          { num: "01", title: "Customized Leadership Training", desc: "Programs tailored to your organization, building communication, decision-making, and team management." },
+          { num: "02", title: "Mentorship Programs", desc: "Pair experienced leaders with emerging talent to foster knowledge-sharing and growth." },
+          { num: "03", title: "Team Collaboration Workshops", desc: "Interactive sessions that strengthen collaboration and problem-solving across teams." },
+          { num: "04", title: "Operational & Compliance Focus", desc: "Incorporate operational and compliance priorities into well-rounded leadership development." },
+          { num: "05", title: "Ongoing Support & Evaluation", desc: "Continued guidance, progress monitoring, and actionable feedback for continuous improvement." }
+        ],
+        closing: "Build a team of confident, capable leaders prepared to guide your organization to new heights.",
+        tquote: "Awesome experience with Tony. Very knowledgeable, affordable rates, prompt responses whenever we have a question. Offers in-person and video meetings. Anyone needing assistance with AHCCCS, managed care, or becoming Joint Commission accredited will receive the utmost professionalism.",
+        tname: "ET"
+      }
+    };
+  }
+
+  renderVals() {
+    const slug = this.props.slug || "medicaid";
+    const sv = this.DATA[slug] || this.DATA["medicaid"];
+    return {
+      sv,
+      f: this.state.f,
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      err: this.state.err,
+      errMsg: this.state.errMsg,
+      setName: (e) => this.setState({ f: { ...this.state.f, name: e.target.value } }),
+      setEmail: (e) => this.setState({ f: { ...this.state.f, email: e.target.value } }),
+      setPhone: (e) => this.setState({ f: { ...this.state.f, phone: e.target.value } }),
+      setMsg: (e) => this.setState({ f: { ...this.state.f, msg: e.target.value } }),
+      submit: () => {
+        const f = this.state.f;
+        if (!f.name.trim()) return this.setState({ err: true, errMsg: "Please enter your name." });
+        if (f.email.indexOf("@") < 1) return this.setState({ err: true, errMsg: "Please enter a valid email address." });
+        this.setState({ sent: true, err: false });
+      }
+    };
+  }
+
+  componentDidMount() {
+    const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+    document.querySelectorAll("[data-reveal][data-reveal-delay]").forEach(el => {
+      el.style.animationDelay = (el.getAttribute("data-reveal-delay") || 0) + "ms";
+    });
+  }
+}
+</script>
+</body>
+</html>

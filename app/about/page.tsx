@@ -3,7 +3,7 @@ import { SiteShell } from "@/components/site-shell";
 import { PageHero } from "@/components/page-hero";
 import { Reveal } from "@/components/reveal";
 import { Eyebrow } from "@/components/ui/eyebrow";
-import { PlaceholderFrame } from "@/components/placeholder-frame";
+import { PhotoFrame } from "@/components/photo-frame";
 import { CtaBand } from "@/components/cta-band";
 import { ImageBanner } from "@/components/image-banner";
 import { Newsletter } from "@/components/newsletter";
@@ -18,9 +18,9 @@ export const metadata: Metadata = {
 const CREDS = ["MS Psychology, Capella", "LISAC, AZBBHE", "VP, ABCAC", "13+ Years in Behavioral Health"];
 
 const TEAM = [
-  { role: "Credentialing Specialists", focus: "Medicaid provider enrollment and facility certification." },
-  { role: "Compliance & Accreditation", focus: "Joint Commission prep, audits, and survey readiness." },
-  { role: "Operations & Leadership", focus: "Facility management, workflows, and leadership coaching." },
+  { role: "Credentialing Specialists", focus: "Medicaid provider enrollment and facility certification.", img: "/assets/boardroom.png" },
+  { role: "Compliance & Accreditation", focus: "Joint Commission prep, audits, and survey readiness.", img: "/assets/excellence.png" },
+  { role: "Operations & Leadership", focus: "Facility management, workflows, and leadership coaching.", img: "/assets/hero-team.png" },
 ];
 
 const HISTORY = [
@@ -95,7 +95,12 @@ export default function AboutPage() {
       <section className="border-y border-tan-line bg-tan px-[clamp(20px,5vw,56px)] py-[clamp(56px,8vw,104px)]">
         <div className="mx-auto grid max-w-content items-start gap-[clamp(36px,6vw,64px)] lg:grid-cols-2">
           <Reveal>
-            <PlaceholderFrame label="[ Tony Renello, portrait ]" aspect="4/5" ticks />
+            <PhotoFrame
+              src="/assets/team-experts.png"
+              alt="Tony Renello, founder of Da Vinci Consulting Services, meeting with a client"
+              aspect="4/5"
+              ticks
+            />
           </Reveal>
           <Reveal delay={100}>
             <Eyebrow>Our founder</Eyebrow>
@@ -157,7 +162,7 @@ export default function AboutPage() {
           <div className="grid gap-[18px] sm:grid-cols-2 lg:grid-cols-3">
             {TEAM.map((m, i) => (
               <Reveal key={m.role} delay={i * 80}>
-                <PlaceholderFrame label="[ team member ]" aspect="1/1" className="mb-4" />
+                <PhotoFrame src={m.img} alt={`Da Vinci ${m.role} team`} aspect="1/1" className="mb-4" />
                 <h3 className="mb-1 font-display text-lg font-semibold text-ink">{m.role}</h3>
                 <p className="text-[13.5px] leading-[1.5] text-text-muted">{m.focus}</p>
               </Reveal>

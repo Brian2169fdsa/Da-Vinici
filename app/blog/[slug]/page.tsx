@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteShell } from "@/components/site-shell";
 import { Reveal } from "@/components/reveal";
-import { PlaceholderFrame } from "@/components/placeholder-frame";
+import { PhotoFrame } from "@/components/photo-frame";
 import { ImageBanner } from "@/components/image-banner";
 import { Newsletter } from "@/components/newsletter";
 import { POSTS, getPost, relatedPosts } from "@/lib/blog";
@@ -46,7 +46,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         </header>
 
         <Reveal className="mx-auto mt-10 max-w-[940px]">
-          <PlaceholderFrame label="[ article hero image ]" aspect="16/9" ticks />
+          <PhotoFrame src="/assets/hero-team.png" alt={post.title} aspect="16/9" ticks priority />
         </Reveal>
 
         <div className="mx-auto mt-12 max-w-[720px]">

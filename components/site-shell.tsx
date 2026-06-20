@@ -1,5 +1,6 @@
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { ChatWidget } from "@/components/chat-widget";
 
 /** Header + main + footer wrapper used by every page. */
 export function SiteShell({ children }: { children: React.ReactNode }) {
@@ -10,6 +11,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
         {children}
       </main>
       <SiteFooter />
+      <ChatWidget />
     </>
   );
 }

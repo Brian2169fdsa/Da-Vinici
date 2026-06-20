@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Phone, Menu, X } from "lucide-react";
@@ -12,6 +12,20 @@ export function SiteHeader() {
   const [megaOpen, setMegaOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
+
+  // The mega panel sits below the nav bar, so moving the cursor from the
+  // "Services" trigger down into the panel briefly leaves both elements.
+  // Close on a short delay that re-entering either region cancels — this
+  // bridges the gap so the panel stays open while you reach for a link.
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const openMega = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setMegaOpen(true);
+  };
+  const closeMegaSoon = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => setMegaOpen(false), 140);
+  };
 
   // Solid white header always; add a soft shadow once scrolled past 24px.
   useEffect(() => {
@@ -25,7 +39,13 @@ export function SiteHeader() {
   useEffect(() => {
     setMobileOpen(false);
     setMegaOpen(false);
+    if (closeTimer.current) clearTimeout(closeTimer.current);
   }, [pathname]);
+
+  // Clear any pending close timer on unmount.
+  useEffect(() => () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -53,21 +73,21 @@ export function SiteHeader() {
           {/* Desktop nav */}
           <nav
             className="hidden items-center gap-1 text-[15px] font-medium nav:flex"
-            onMouseLeave={() => setMegaOpen(false)}
+            onMouseLeave={closeMegaSoon}
           >
             {NAV.map((item) =>
               "hasMega" in item && item.hasMega ? (
                 <span
                   key={item.href}
                   className="relative"
-                  onMouseEnter={() => setMegaOpen(true)}
+                  onMouseEnter={openMega}
                 >
                   <Link
                     href={item.href}
                     className="inline-flex items-center gap-1.5 rounded-lg px-3.5 py-[9px] text-ink hover:bg-tan"
                     aria-haspopup="true"
                     aria-expanded={megaOpen}
-                    onFocus={() => setMegaOpen(true)}
+                    onFocus={openMega}
                   >
                     {item.label}
                     <span className="text-[10px] text-gold-deep">▾</span>
@@ -118,7 +138,8 @@ export function SiteHeader() {
           <div
             className="absolute inset-x-0 top-[74px] hidden border-y border-line bg-cream nav:block"
             style={{ boxShadow: "0 24px 48px rgba(33,28,24,.12)" }}
-            onMouseLeave={() => setMegaOpen(false)}
+            onMouseEnter={openMega}
+            onMouseLeave={closeMegaSoon}
           >
             <div className="container-1200 grid grid-cols-[300px_1fr] items-stretch gap-9 py-7">
               <div className="relative flex min-h-[300px] flex-col justify-end overflow-hidden rounded-[14px] bg-ink-panel p-[26px]">

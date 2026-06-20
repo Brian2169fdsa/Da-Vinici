@@ -8,7 +8,7 @@ import { LEAD_NEEDS } from "@/lib/site";
 type Variant = "full" | "simple";
 
 const inputCls =
-  "w-full rounded-[10px] border border-line bg-cream px-[15px] py-[13px] text-[15px] text-ink outline-none focus:border-gold";
+  "w-full rounded-[10px] border border-line bg-cream px-[15px] py-[13px] text-[16px] text-ink outline-none focus:border-gold";
 
 const labelCls = "mb-[7px] block text-[13px] font-semibold text-text";
 

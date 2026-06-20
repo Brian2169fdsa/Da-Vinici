@@ -54,7 +54,7 @@ export default function ContactPage() {
       <section className="px-[clamp(20px,5vw,56px)] py-[clamp(56px,8vw,104px)]">
         <div className="mx-auto grid max-w-content items-start gap-[clamp(40px,6vw,72px)] lg:grid-cols-2">
           {/* Left: contact details + reassurance */}
-          <Reveal>
+          <Reveal className="min-w-0">
             <div className="flex flex-col gap-2">
               {CONTACTS.map(({ Icon, label, value, href }) => (
                 <a key={label} href={href} className="flex items-center gap-4 rounded-card border border-line bg-cream p-4 transition-colors hover:border-gold">
@@ -65,7 +65,7 @@ export default function ContactPage() {
                     <span className="block font-mono text-[11px] uppercase tracking-[.1em] text-[#A8997F]">
                       {label}
                     </span>
-                    <span className="block break-words text-[15px] font-semibold text-ink">{value}</span>
+                    <span className="block [overflow-wrap:anywhere] text-[15px] font-semibold text-ink">{value}</span>
                   </span>
                 </a>
               ))}
@@ -84,7 +84,7 @@ export default function ContactPage() {
           </Reveal>
 
           {/* Right: form */}
-          <Reveal delay={100}>
+          <Reveal delay={100} className="min-w-0">
             <ContactForm />
           </Reveal>
         </div>

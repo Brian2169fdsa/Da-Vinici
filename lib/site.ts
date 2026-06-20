@@ -20,7 +20,7 @@ export const SITE = {
     postal: "85020",
   },
   url: "https://www.davinciconsultingservices.com",
-  builtBy: { label: "Phoenix Creative Works", href: "https://phoenixcreativeworks.com/" },
+  builtBy: { label: "Phoenix Creative Works", href: "https://www.phxcw.com" },
 } as const;
 
 export const NAV = [
